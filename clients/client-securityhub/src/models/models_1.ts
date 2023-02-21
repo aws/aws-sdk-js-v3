@@ -68,7 +68,7 @@ export interface AwsIamGroupDetails {
   /**
    * <p>Indicates when the IAM group was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -111,7 +111,7 @@ export interface AwsIamInstanceProfileRole {
   /**
    * <p>Indicates when the role was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -144,7 +144,7 @@ export interface AwsIamInstanceProfile {
   /**
    * <p>Indicates when the instance profile was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -203,7 +203,7 @@ export interface AwsIamPolicyVersion {
   /**
    * <p>Indicates when the version was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -221,7 +221,7 @@ export interface AwsIamPolicyDetails {
   /**
    * <p>When the policy was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -270,7 +270,7 @@ export interface AwsIamPolicyDetails {
   /**
    * <p>When the policy was most recently updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdateDate?: string;
@@ -303,7 +303,7 @@ export interface AwsIamRoleDetails {
   /**
    * <p>Indicates when the role was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -367,7 +367,7 @@ export interface AwsIamUserDetails {
   /**
    * <p>Indicates when the user was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
@@ -470,7 +470,7 @@ export interface AwsKmsKeyDetails {
   /**
    * <p>Indicates when the KMS key was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreationDate?: number;
@@ -689,7 +689,7 @@ export interface AwsLambdaFunctionDetails {
   /**
    * <p>Indicates when the function was last updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastModified?: string;
@@ -780,7 +780,7 @@ export interface AwsLambdaLayerVersionDetails {
   /**
    * <p>Indicates when the version was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedDate?: string;
@@ -1989,7 +1989,7 @@ export interface AwsRdsDbClusterDetails {
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ClusterCreateTime?: string;
@@ -2131,7 +2131,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
   /**
    * <p>Indicates when the snapshot was taken.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   SnapshotCreateTime?: string;
@@ -2164,7 +2164,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ClusterCreateTime?: string;
@@ -2614,7 +2614,7 @@ export interface AwsRdsDbInstanceDetails {
   /**
    * <p>Indicates when the DB instance was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   InstanceCreateTime?: string;
@@ -2727,7 +2727,7 @@ export interface AwsRdsDbInstanceDetails {
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *          restore.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LatestRestorableTime?: string;
@@ -3226,7 +3226,7 @@ export interface AwsRdsEventSubscriptionDetails {
   /**
    * <p>The datetime when the event notification subscription was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   SubscriptionCreationTime?: string;
@@ -3353,7 +3353,7 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   /**
    * <p>The end of the time window for which maintenance was deferred.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   DeferMaintenanceEndTime?: string;
@@ -3366,7 +3366,7 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   /**
    * <p>The start of the time window for which maintenance was deferred.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   DeferMaintenanceStartTime?: string;
@@ -3464,7 +3464,7 @@ export interface AwsRedshiftClusterLoggingStatus {
   /**
    * <p>The last time when logs failed to be delivered.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastFailureTime?: string;
@@ -3472,7 +3472,7 @@ export interface AwsRedshiftClusterLoggingStatus {
   /**
    * <p>The last time that logs were delivered successfully.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastSuccessfulDeliveryTime?: string;
@@ -3682,7 +3682,7 @@ export interface AwsRedshiftClusterDetails {
   /**
    * <p>Indicates when the cluster was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ClusterCreateTime?: string;
@@ -3792,7 +3792,7 @@ export interface AwsRedshiftClusterDetails {
    * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
    *          snapshot schedule and have backups enabled.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ExpectedNextSnapshotScheduleTime?: string;
@@ -3844,7 +3844,7 @@ export interface AwsRedshiftClusterDetails {
   /**
    * <p>Indicates the start of the next maintenance window.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   NextMaintenanceWindowStartTime?: string;
@@ -4074,7 +4074,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
   /**
    * <p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   Date?: string;
@@ -4130,7 +4130,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
   /**
    * <p>The date when objects are moved or deleted.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   ExpirationDate?: string;
@@ -4492,7 +4492,7 @@ export interface AwsS3BucketDetails {
   /**
    * <p>Indicates when the S3 bucket was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedAt?: string;
@@ -4545,7 +4545,7 @@ export interface AwsS3ObjectDetails {
   /**
    * <p>Indicates when the object was last modified.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastModified?: string;
@@ -5182,7 +5182,7 @@ export interface Note {
   /**
    * <p>The timestamp of when the note was updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdatedAt: string | undefined;
@@ -5236,7 +5236,7 @@ export interface PatchSummary {
   /**
    * <p>Indicates when the operation started.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   OperationStartTime?: string;
@@ -5244,7 +5244,7 @@ export interface PatchSummary {
   /**
    * <p>Indicates when the operation completed.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   OperationEndTime?: string;
@@ -5288,7 +5288,7 @@ export interface ProcessDetails {
   /**
    * <p>Indicates when the process was launched.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LaunchedAt?: string;
@@ -5296,7 +5296,7 @@ export interface ProcessDetails {
   /**
    * <p>Indicates when the process was terminated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   TerminatedAt?: string;
@@ -7057,7 +7057,7 @@ export interface ContainerDetails {
   /**
    * <p>Indicates when the container started.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LaunchedAt?: string;
@@ -7746,7 +7746,7 @@ export interface ThreatIntelIndicator {
    * <p>Indicates when the most recent instance of a threat intelligence indicator was
    *          observed.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastObservedAt?: string;
@@ -7888,7 +7888,7 @@ export interface VulnerabilityVendor {
   /**
    * <p>Indicates when the vulnerability advisory was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   VendorCreatedAt?: string;
@@ -7896,7 +7896,7 @@ export interface VulnerabilityVendor {
   /**
    * <p>Indicates when the vulnerability advisory was last updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   VendorUpdatedAt?: string;
@@ -8158,7 +8158,7 @@ export interface AwsSecurityFinding {
    * <p>Indicates when the security-findings provider first observed the potential security
    *          issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   FirstObservedAt?: string;
@@ -8167,7 +8167,7 @@ export interface AwsSecurityFinding {
    * <p>Indicates when the security-findings provider most recently observed the potential
    *          security issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LastObservedAt?: string;
@@ -8176,7 +8176,7 @@ export interface AwsSecurityFinding {
    * <p>Indicates when the security-findings provider created the potential security issue that
    *          a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreatedAt: string | undefined;
@@ -8184,7 +8184,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates when the security-findings provider last updated the finding record.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdatedAt: string | undefined;
@@ -8502,12 +8502,16 @@ export interface DateRange {
  */
 export interface DateFilter {
   /**
-   * <p>A start date for the date filter.</p>
+   * <p>A timestamp that provides the start date for the date filter.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>.
+   *          For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   Start?: string;
 
   /**
-   * <p>An end date for the date filter.</p>
+   * <p>A timestamp that provides the end date for the date filter.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>.
+   *          For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   End?: string;
 
@@ -8639,24 +8643,28 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
    *          observed the potential security issue that a finding captured.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   FirstObservedAt?: DateFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
    *          recently observed the potential security issue that a finding captured.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   LastObservedAt?: DateFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
    *          captured the potential security issue that a finding captured.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   CreatedAt?: DateFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
    *          updated the finding record. </p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   UpdatedAt?: DateFilter[];
 
@@ -8836,12 +8844,14 @@ export interface AwsSecurityFindingFilters {
   ProcessParentPid?: NumberFilter[];
 
   /**
-   * <p>The date/time that the process was launched.</p>
+   * <p>A timestamp that identifies when the process was launched.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   ProcessLaunchedAt?: DateFilter[];
 
   /**
-   * <p>The date/time that the process was terminated.</p>
+   * <p>A timestamp that identifies when the process was terminated.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   ProcessTerminatedAt?: DateFilter[];
 
@@ -8861,7 +8871,7 @@ export interface AwsSecurityFindingFilters {
   ThreatIntelIndicatorCategory?: StringFilter[];
 
   /**
-   * <p>The date/time of the last observation of a threat intelligence indicator.</p>
+   * <p>A timestamp that identifies the last observation of a threat intelligence indicator.</p>
    */
   ThreatIntelIndicatorLastObservedAt?: DateFilter[];
 
@@ -8999,7 +9009,8 @@ export interface AwsSecurityFindingFilters {
   ResourceContainerImageName?: StringFilter[];
 
   /**
-   * <p>The date/time that the container was started.</p>
+   * <p>A timestamp that identifies when the container was started.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   ResourceContainerLaunchedAt?: DateFilter[];
 
