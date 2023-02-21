@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
+
+
+### Features
+
+* **client-resiliencehub:** In this release we improved resilience hub application creation and maintenance by introducing new resource and app component crud APIs, improving visibility and maintenance of application input sources and added support for additional information attributes to be provided by customers. ([014cd1c](https://github.com/aws/aws-sdk-js-v3/commit/014cd1cc61125583d1acdc68e2a43b32893d8be6))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub

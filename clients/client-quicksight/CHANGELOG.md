@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
+
+
+### Features
+
+* **client-quicksight:** S3 data sources now accept a custom IAM role. ([6d0fccc](https://github.com/aws/aws-sdk-js-v3/commit/6d0fccc898738fdc0979dd25284ed645f0ee8fbf))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight
