@@ -1723,6 +1723,11 @@ export interface S3Parameters {
    *             uploaded into Amazon QuickSight.</p>
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
+
+  /**
+   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+   */
+  RoleArn?: string;
 }
 
 /**
