@@ -4803,6 +4803,11 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+   *           metadata.</p>
+   *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.</p>
+   */
   public getUnfilteredPartitionMetadata(
     args: GetUnfilteredPartitionMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -4832,6 +4837,11 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+   *           metadata.</p>
+   *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
+   */
   public getUnfilteredPartitionsMetadata(
     args: GetUnfilteredPartitionsMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -4861,6 +4871,11 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
+   *           metadata.</p>
+   *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
+   */
   public getUnfilteredTableMetadata(
     args: GetUnfilteredTableMetadataCommandInput,
     options?: __HttpHandlerOptions

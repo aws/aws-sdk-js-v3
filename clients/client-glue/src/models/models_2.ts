@@ -7,6 +7,7 @@ import {
   Aggregate,
   AthenaConnectorSource,
   BasicCatalogTarget,
+  CatalogDeltaSource,
   CatalogHudiSource,
   CatalogKafkaSource,
   CatalogKinesisSource,
@@ -63,10 +64,14 @@ import {
   RegistryId,
   RelationalCatalogSource,
   RenameField,
+  S3CatalogDeltaSource,
   S3CatalogHudiSource,
   S3CatalogSource,
   S3CatalogTarget,
   S3CsvSource,
+  S3DeltaCatalogTarget,
+  S3DeltaDirectTarget,
+  S3DeltaSource,
   S3DirectTarget,
   S3GlueParquetTarget,
   S3HudiCatalogTarget,
@@ -76,8 +81,6 @@ import {
   S3ParquetSource,
   SchemaChangePolicy,
   SchemaId,
-  SchemaStatus,
-  SchemaVersionStatus,
   SelectFields,
   SelectFromCollection,
   SourceControlAuthStrategy,
@@ -98,12 +101,12 @@ import {
   ColumnStatistics,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
-  FieldName,
-  FilterOperator,
   JobBookmarkEntry,
   RegistryStatus,
   ResourceShareType,
+  SchemaStatus,
   SchemaVersionNumber,
+  SchemaVersionStatus,
   Session,
   Statement,
   Table,
@@ -112,6 +115,82 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+export interface ListBlueprintsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters the list by an Amazon Web Services resource tag.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListBlueprintsResponse {
+  /**
+   * <p>List of names of blueprints in the account.</p>
+   */
+  Blueprints?: string[];
+
+  /**
+   * <p>A continuation token, if not all blueprint names have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCrawlersRequest {
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export interface ListCrawlersResponse {
+  /**
+   * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
+   */
+  CrawlerNames?: string[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export enum FieldName {
+  CRAWL_ID = "CRAWL_ID",
+  DPU_HOUR = "DPU_HOUR",
+  END_TIME = "END_TIME",
+  START_TIME = "START_TIME",
+  STATE = "STATE",
+}
+
+export enum FilterOperator {
+  EQ = "EQ",
+  GE = "GE",
+  GT = "GT",
+  LE = "LE",
+  LT = "LT",
+  NE = "NE",
+}
 
 /**
  * <p>A list of fields, comparators and value that you can use to filter the crawler runs for a specified crawler.</p>
@@ -3614,7 +3693,7 @@ export interface CodeGenConfigurationNode {
   EvaluateDataQuality?: EvaluateDataQuality;
 
   /**
-   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>
+   * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
    */
   S3CatalogHudiSource?: S3CatalogHudiSource;
 
@@ -3642,6 +3721,31 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies the direct JDBC source connection.</p>
    */
   DirectJDBCSource?: DirectJDBCSource;
+
+  /**
+   * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
+   */
+  S3CatalogDeltaSource?: S3CatalogDeltaSource;
+
+  /**
+   * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
+   */
+  CatalogDeltaSource?: CatalogDeltaSource;
+
+  /**
+   * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
+   */
+  S3DeltaSource?: S3DeltaSource;
+
+  /**
+   * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
+   */
+  S3DeltaCatalogTarget?: S3DeltaCatalogTarget;
+
+  /**
+   * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
+   */
+  S3DeltaDirectTarget?: S3DeltaDirectTarget;
 }
 
 export interface CreateJobRequest {
@@ -4181,6 +4285,34 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const ListBlueprintsRequestFilterSensitiveLog = (obj: ListBlueprintsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBlueprintsResponseFilterSensitiveLog = (obj: ListBlueprintsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlersRequestFilterSensitiveLog = (obj: ListCrawlersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrawlersResponseFilterSensitiveLog = (obj: ListCrawlersResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

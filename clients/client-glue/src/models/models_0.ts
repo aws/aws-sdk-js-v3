@@ -1932,6 +1932,36 @@ export interface BatchGetJobsRequest {
 }
 
 /**
+ * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
+ */
+export interface CatalogDeltaSource {
+  /**
+   * <p>The name of the Delta Lake data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the database to read from.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The name of the table in the database to read from.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>Specifies additional connection options.</p>
+   */
+  AdditionalDeltaOptions?: Record<string, string>;
+
+  /**
+   * <p>Specifies the data schema for the Delta Lake source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
+}
+
+/**
  * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
  */
 export interface CatalogHudiSource {
@@ -3594,6 +3624,36 @@ export interface RenameField {
 }
 
 /**
+ * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
+ */
+export interface S3CatalogDeltaSource {
+  /**
+   * <p>The name of the Delta Lake data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the database to read from.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>The name of the table in the database to read from.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>Specifies additional connection options.</p>
+   */
+  AdditionalDeltaOptions?: Record<string, string>;
+
+  /**
+   * <p>Specifies the data schema for the Delta Lake source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
+}
+
+/**
  * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>
  */
 export interface S3CatalogHudiSource {
@@ -3833,9 +3893,55 @@ export interface S3CsvSource {
   OutputSchemas?: GlueSchema[];
 }
 
+/**
+ * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
+ */
+export interface S3DeltaCatalogTarget {
+  /**
+   * <p>The name of the data target.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>Specifies native partitioning using a sequence of keys.</p>
+   */
+  PartitionKeys?: string[][];
+
+  /**
+   * <p>The name of the table in the database to write to.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * <p>The name of the database to write to.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>Specifies additional connection options for the connector.</p>
+   */
+  AdditionalOptions?: Record<string, string>;
+
+  /**
+   * <p>A policy that specifies update behavior for the crawler.</p>
+   */
+  SchemaChangePolicy?: CatalogSchemaChangePolicy;
+}
+
+export enum DeltaTargetCompressionType {
+  SNAPPY = "snappy",
+  UNCOMPRESSED = "uncompressed",
+}
+
 export enum TargetFormat {
   AVRO = "avro",
   CSV = "csv",
+  DELTA = "delta",
   HUDI = "hudi",
   JSON = "json",
   ORC = "orc",
@@ -3865,6 +3971,81 @@ export interface DirectSchemaChangePolicy {
    * <p>Specifies the database that the schema change policy applies to.</p>
    */
   Database?: string;
+}
+
+/**
+ * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
+ */
+export interface S3DeltaDirectTarget {
+  /**
+   * <p>The name of the data target.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>Specifies native partitioning using a sequence of keys.</p>
+   */
+  PartitionKeys?: string[][];
+
+  /**
+   * <p>The Amazon S3 path of your Delta Lake data source to write to.</p>
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
+   */
+  Compression: DeltaTargetCompressionType | string | undefined;
+
+  /**
+   * <p>Specifies the data output format for the target.</p>
+   */
+  Format: TargetFormat | string | undefined;
+
+  /**
+   * <p>Specifies additional connection options for the connector.</p>
+   */
+  AdditionalOptions?: Record<string, string>;
+
+  /**
+   * <p>A policy that specifies update behavior for the crawler.</p>
+   */
+  SchemaChangePolicy?: DirectSchemaChangePolicy;
+}
+
+/**
+ * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
+ */
+export interface S3DeltaSource {
+  /**
+   * <p>The name of the Delta Lake source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of the Amazon S3 paths to read from.</p>
+   */
+  Paths: string[] | undefined;
+
+  /**
+   * <p>Specifies additional connection options.</p>
+   */
+  AdditionalDeltaOptions?: Record<string, string>;
+
+  /**
+   * <p>Specifies additional options for the connector.</p>
+   */
+  AdditionalOptions?: S3DirectSourceAdditionalOptions;
+
+  /**
+   * <p>Specifies the data schema for the Delta Lake source.</p>
+   */
+  OutputSchemas?: GlueSchema[];
 }
 
 /**
@@ -5912,7 +6093,7 @@ export interface PhysicalConnectionRequirements {
  */
 export interface ConnectionInput {
   /**
-   * <p>The name of the connection.</p>
+   * <p>The name of the connection. Connection will not function as expected without a name.</p>
    */
   Name: string | undefined;
 
@@ -5927,29 +6108,90 @@ export interface ConnectionInput {
    *             <li>
    *                <p>
    *                   <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p>
+   *                <p>
+   *                   <code>JDBC</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: All of (<code>HOST</code>, <code>PORT</code>, <code>JDBC_ENGINE</code>) or <code>JDBC_CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>JDBC_ENFORCE_SSL</code>, <code>CUSTOM_JDBC_CERT</code>, <code>CUSTOM_JDBC_CERT_STRING</code>, <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code>.  These parameters are used to configure SSL with JDBC.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>KAFKA</code> - Designates a connection to an Apache Kafka streaming platform.</p>
+   *                <p>
+   *                   <code>KAFKA</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>KAFKA_BOOTSTRAP_SERVERS</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SSL_ENABLED</code>, <code>KAFKA_CUSTOM_CERT</code>, <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code>. These parameters are used to configure SSL with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_CLIENT_KEYSTORE</code>, <code>KAFKA_CLIENT_KEYSTORE_PASSWORD</code>, <code>KAFKA_CLIENT_KEY_PASSWORD</code>, <code>ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD</code>, <code>ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD</code>. These parameters are used to configure TLS client configuration with SSL in <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_MECHANISM</code>. Can be specified as <code>SCRAM-SHA-512</code>, <code>GSSAPI</code>, or <code>AWS_MSK_IAM</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_SCRAM_USERNAME</code>, <code>KAFKA_SASL_SCRAM_PASSWORD</code>, <code>ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD</code>. These parameters are used to configure SASL/SCRAM-SHA-512 authentication with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_GSSAPI_KEYTAB</code>, <code>KAFKA_SASL_GSSAPI_KRB5_CONF</code>, <code>KAFKA_SASL_GSSAPI_SERVICE</code>, <code>KAFKA_SASL_GSSAPI_PRINCIPAL</code>. These parameters are used to configure SASL/GSSAPI authentication with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>MONGODB</code> - Designates a connection to a MongoDB document database.</p>
+   *                <p>
+   *                   <code>MONGODB</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>
+   *                <p>
+   *                   <code>NETWORK</code> Connections do not require ConnectionParameters. Instead, provide a PhysicalConnectionRequirements.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from Amazon Web Services Marketplace to read from and write to data stores that are not natively supported by Glue.</p>
+   *                <p>
+   *                   <code>MARKETPLACE</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>CONNECTOR_TYPE</code>, <code>CONNECTOR_URL</code>, <code>CONNECTOR_CLASS_NAME</code>, <code>CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required for <code>JDBC</code>
+   *                         <code>CONNECTOR_TYPE</code> connections: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by Glue.</p>
    *             </li>
    *          </ul>
-   *          <p>SFTP is not supported.</p>
+   *          <p>
+   *             <code>SFTP</code> is not supported.</p>
+   *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue, consult <a href="https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html">Glue connection properties</a>.</p>
+   *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue Studio, consult <a href="https://docs.aws.amazon.com/glue/latest/ug/connectors-chapter.html">Using connectors and connections</a>.</p>
    */
   ConnectionType: ConnectionType | string | undefined;
 
@@ -6234,7 +6476,7 @@ export interface DatabaseInput {
   Parameters?: Record<string, string>;
 
   /**
-   * <p>Creates a set of default permissions on the table for principals. </p>
+   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
    */
   CreateTableDefaultPermissions?: PrincipalPermissions[];
 
@@ -7015,156 +7257,6 @@ export interface CreateSchemaInput {
   SchemaDefinition?: string;
 }
 
-export enum SchemaStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-}
-
-export enum SchemaVersionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILURE = "FAILURE",
-  PENDING = "PENDING",
-}
-
-export interface CreateSchemaResponse {
-  /**
-   * <p>The name of the registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
-   */
-  RegistryArn?: string;
-
-  /**
-   * <p>The name of the schema.</p>
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>A description of the schema if specified when created.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   */
-  DataFormat?: DataFormat | string;
-
-  /**
-   * <p>The schema compatibility mode.</p>
-   */
-  Compatibility?: Compatibility | string;
-
-  /**
-   * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
-   */
-  SchemaCheckpoint?: number;
-
-  /**
-   * <p>The latest version of the schema associated with the returned schema definition.</p>
-   */
-  LatestSchemaVersion?: number;
-
-  /**
-   * <p>The next version of the schema associated with the returned schema definition.</p>
-   */
-  NextSchemaVersion?: number;
-
-  /**
-   * <p>The status of the schema. </p>
-   */
-  SchemaStatus?: SchemaStatus | string;
-
-  /**
-   * <p>The tags for the schema.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>The unique identifier of the first schema version.</p>
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>The status of the first schema version created.</p>
-   */
-  SchemaVersionStatus?: SchemaVersionStatus | string;
-}
-
-/**
- * <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
- */
-export interface CodeGenEdge {
-  /**
-   * <p>The ID of the node at which the edge starts.</p>
-   */
-  Source: string | undefined;
-
-  /**
-   * <p>The ID of the node at which the edge ends.</p>
-   */
-  Target: string | undefined;
-
-  /**
-   * <p>The target of the edge.</p>
-   */
-  TargetParameter?: string;
-}
-
-/**
- * <p>An argument or property of a node.</p>
- */
-export interface CodeGenNodeArg {
-  /**
-   * <p>The name of the argument or property.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value of the argument or property.</p>
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>True if the value is used as a parameter.</p>
-   */
-  Param?: boolean;
-}
-
-/**
- * <p>Represents a node in a directed acyclic graph (DAG)</p>
- */
-export interface CodeGenNode {
-  /**
-   * <p>A node identifier that is unique within the node's graph.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The type of node that this is.</p>
-   */
-  NodeType: string | undefined;
-
-  /**
-   * <p>Properties of the node, in the form of name-value pairs.</p>
-   */
-  Args: CodeGenNodeArg[] | undefined;
-
-  /**
-   * <p>The line number of the node.</p>
-   */
-  LineNumber?: number;
-}
-
 /**
  * @internal
  */
@@ -7616,6 +7708,13 @@ export const BatchGetJobsRequestFilterSensitiveLog = (obj: BatchGetJobsRequest):
 /**
  * @internal
  */
+export const CatalogDeltaSourceFilterSensitiveLog = (obj: CatalogDeltaSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CatalogHudiSourceFilterSensitiveLog = (obj: CatalogHudiSource): any => ({
   ...obj,
 });
@@ -7980,6 +8079,13 @@ export const RenameFieldFilterSensitiveLog = (obj: RenameField): any => ({
 /**
  * @internal
  */
+export const S3CatalogDeltaSourceFilterSensitiveLog = (obj: S3CatalogDeltaSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const S3CatalogHudiSourceFilterSensitiveLog = (obj: S3CatalogHudiSource): any => ({
   ...obj,
 });
@@ -8015,7 +8121,28 @@ export const S3CsvSourceFilterSensitiveLog = (obj: S3CsvSource): any => ({
 /**
  * @internal
  */
+export const S3DeltaCatalogTargetFilterSensitiveLog = (obj: S3DeltaCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DirectSchemaChangePolicyFilterSensitiveLog = (obj: DirectSchemaChangePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DeltaDirectTargetFilterSensitiveLog = (obj: S3DeltaDirectTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DeltaSourceFilterSensitiveLog = (obj: S3DeltaSource): any => ({
   ...obj,
 });
 
@@ -8768,33 +8895,5 @@ export const RegistryIdFilterSensitiveLog = (obj: RegistryId): any => ({
  * @internal
  */
 export const CreateSchemaInputFilterSensitiveLog = (obj: CreateSchemaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenEdgeFilterSensitiveLog = (obj: CodeGenEdge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenNodeArgFilterSensitiveLog = (obj: CodeGenNodeArg): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenNodeFilterSensitiveLog = (obj: CodeGenNode): any => ({
   ...obj,
 });

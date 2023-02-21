@@ -219,7 +219,7 @@ export interface Delegation {
   comment?: string;
 
   /**
-   * <p> The IAM user or role that created the delegation. </p>
+   * <p> The user or role that created the delegation. </p>
    */
   createdBy?: string;
 }
@@ -377,6 +377,20 @@ export interface AssessmentReportsDestination {
 /**
  * <p> An Amazon Web Service such as Amazon S3 or CloudTrail.
  *       </p>
+ *          <p>For an example of how to find an Amazon Web Service name and how to define it in
+ *          your assessment scope, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2">Finding an Amazon Web Service name to use in your assessment scope</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3">Defining an Amazon Web Service name in your assessment scope</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export interface AWSService {
   /**
@@ -1690,12 +1704,12 @@ export interface Control {
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The IAM user or role that created the control. </p>
+   * <p> The user or role that created the control. </p>
    */
   createdBy?: string;
 
   /**
-   * <p> The IAM user or role that most recently updated the control. </p>
+   * <p> The user or role that most recently updated the control. </p>
    */
   lastUpdatedBy?: string;
 
@@ -1788,12 +1802,12 @@ export interface Framework {
   lastUpdatedAt?: Date;
 
   /**
-   * <p> The IAM user or role that created the framework. </p>
+   * <p> The user or role that created the framework. </p>
    */
   createdBy?: string;
 
   /**
-   * <p> The IAM user or role that most recently updated the framework. </p>
+   * <p> The user or role that most recently updated the framework. </p>
    */
   lastUpdatedBy?: string;
 
@@ -2198,7 +2212,7 @@ export interface ChangeLog {
   createdAt?: Date;
 
   /**
-   * <p> The IAM user or role that performed the action. </p>
+   * <p> The user or role that performed the action. </p>
    */
   createdBy?: string;
 }
@@ -2404,7 +2418,7 @@ export interface Evidence {
   attributes?: Record<string, string>;
 
   /**
-   * <p> The unique identifier for the IAM user or role that's associated with
+   * <p> The unique identifier for the user or role that's associated with
    *          the evidence. </p>
    */
   iamId?: string;

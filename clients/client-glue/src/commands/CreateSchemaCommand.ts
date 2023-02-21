@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateSchemaInput,
-  CreateSchemaInputFilterSensitiveLog,
-  CreateSchemaResponse,
-  CreateSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSchemaInput, CreateSchemaInputFilterSensitiveLog } from "../models/models_0";
+import { CreateSchemaResponse, CreateSchemaResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateSchemaCommand,
   serializeAws_json1_1CreateSchemaCommand,

@@ -30,6 +30,25 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
   extends GetUnfilteredPartitionMetadataResponse,
     __MetadataBearer {}
 
+/**
+ * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+ *           metadata.</p>
+ *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetUnfilteredPartitionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetUnfilteredPartitionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetUnfilteredPartitionMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUnfilteredPartitionMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetUnfilteredPartitionMetadataCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class GetUnfilteredPartitionMetadataCommand extends $Command<
   GetUnfilteredPartitionMetadataCommandInput,
   GetUnfilteredPartitionMetadataCommandOutput,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.274.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.273.0...v3.274.0) (2023-02-17)
+
+
+### Bug Fixes
+
+* **xhr-http-handler:** read response body is incomplete ([#4422](https://github.com/aws/aws-sdk-js-v3/issues/4422)) ([f562bc8](https://github.com/aws/aws-sdk-js-v3/commit/f562bc8b1423e308cb1cc550bc70d24217abb16b))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/xhr-http-handler

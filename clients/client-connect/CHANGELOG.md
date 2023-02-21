@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.275.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.274.0...v3.275.0) (2023-02-20)
+
+
+### Features
+
+* **client-connect:** Reasons for failed diff has been approved by SDK Reviewer ([d714121](https://github.com/aws/aws-sdk-js-v3/commit/d714121337a6c2123b725f6d49c9e753f0b3d509))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -2384,7 +2384,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Updates Audit Manager settings for the current user account. </p>
+   * <p> Updates Audit Manager settings for the current account. </p>
    */
   public updateSettings(
     args: UpdateSettingsCommandInput,
