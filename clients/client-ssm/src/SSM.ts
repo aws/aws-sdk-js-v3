@@ -4399,9 +4399,9 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
-   *    privately, you must specify the Amazon Web Services user account IDs for those people who can use the
-   *    document. If you share a document publicly, you must specify <i>All</i> as the
-   *    account ID.</p>
+   *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
+   *    you share a document publicly, you must specify <i>All</i> as the account
+   *    ID.</p>
    */
   public modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
@@ -5164,12 +5164,12 @@ export class SSM extends SSMClient {
    *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
    *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
    *    parameters required for your <code>UpdateAssociation</code> call.</p>
-   *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
-   *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
-   *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
-   *     (AccessDeniedException) when calling the UpdateAssociation operation: User: <user_arn>
-   *     isn't authorized to perform: ssm:DescribeAssociation on resource:
-   *    <resource_arn></code>
+   *          <p>In order to call this API operation, a user, group, or role must be granted permission to
+   *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
+   *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
+   *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
+   *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
+   *     <resource_arn></code>
    *          </p>
    *          <important>
    *             <p>When you update an association, the association immediately runs against the specified

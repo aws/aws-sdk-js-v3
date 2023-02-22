@@ -30,9 +30,9 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
 
 /**
  * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
- *    privately, you must specify the Amazon Web Services user account IDs for those people who can use the
- *    document. If you share a document publicly, you must specify <i>All</i> as the
- *    account ID.</p>
+ *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
+ *    you share a document publicly, you must specify <i>All</i> as the account
+ *    ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
