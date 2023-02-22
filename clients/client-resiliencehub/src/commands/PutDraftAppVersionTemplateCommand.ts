@@ -29,7 +29,7 @@ export interface PutDraftAppVersionTemplateCommandInput extends PutDraftAppVersi
 export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVersionTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates the app template for a draft version of a Resilience Hub app.</p>
+ * <p>Adds or updates the app template for an AWS Resilience Hub application draft version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

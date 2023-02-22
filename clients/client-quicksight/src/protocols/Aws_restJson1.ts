@@ -20700,6 +20700,7 @@ const serializeAws_restJson1S3Parameters = (input: S3Parameters, context: __Serd
     ...(input.ManifestFileLocation != null && {
       ManifestFileLocation: serializeAws_restJson1ManifestFileLocation(input.ManifestFileLocation, context),
     }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -30072,6 +30073,7 @@ const deserializeAws_restJson1S3Parameters = (output: any, context: __SerdeConte
       output.ManifestFileLocation != null
         ? deserializeAws_restJson1ManifestFileLocation(output.ManifestFileLocation, context)
         : undefined,
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 

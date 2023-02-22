@@ -29,7 +29,7 @@ export interface PublishAppVersionCommandInput extends PublishAppVersionRequest 
 export interface PublishAppVersionCommandOutput extends PublishAppVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Publishes a new version of a specific Resilience Hub application.</p>
+ * <p>Publishes a new version of a specific AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

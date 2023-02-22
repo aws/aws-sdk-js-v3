@@ -55,6 +55,14 @@ import {
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
+  CreateAppVersionAppComponentCommandInput,
+  CreateAppVersionAppComponentCommandOutput,
+} from "./commands/CreateAppVersionAppComponentCommand";
+import {
+  CreateAppVersionResourceCommandInput,
+  CreateAppVersionResourceCommandOutput,
+} from "./commands/CreateAppVersionResourceCommand";
+import {
   CreateRecommendationTemplateCommandInput,
   CreateRecommendationTemplateCommandOutput,
 } from "./commands/CreateRecommendationTemplateCommand";
@@ -68,6 +76,18 @@ import {
 } from "./commands/DeleteAppAssessmentCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
+  DeleteAppInputSourceCommandInput,
+  DeleteAppInputSourceCommandOutput,
+} from "./commands/DeleteAppInputSourceCommand";
+import {
+  DeleteAppVersionAppComponentCommandInput,
+  DeleteAppVersionAppComponentCommandOutput,
+} from "./commands/DeleteAppVersionAppComponentCommand";
+import {
+  DeleteAppVersionResourceCommandInput,
+  DeleteAppVersionResourceCommandOutput,
+} from "./commands/DeleteAppVersionResourceCommand";
+import {
   DeleteRecommendationTemplateCommandInput,
   DeleteRecommendationTemplateCommandOutput,
 } from "./commands/DeleteRecommendationTemplateCommand";
@@ -80,6 +100,15 @@ import {
   DescribeAppAssessmentCommandOutput,
 } from "./commands/DescribeAppAssessmentCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import {
+  DescribeAppVersionAppComponentCommandInput,
+  DescribeAppVersionAppComponentCommandOutput,
+} from "./commands/DescribeAppVersionAppComponentCommand";
+import { DescribeAppVersionCommandInput, DescribeAppVersionCommandOutput } from "./commands/DescribeAppVersionCommand";
+import {
+  DescribeAppVersionResourceCommandInput,
+  DescribeAppVersionResourceCommandOutput,
+} from "./commands/DescribeAppVersionResourceCommand";
 import {
   DescribeAppVersionResourcesResolutionStatusCommandInput,
   DescribeAppVersionResourcesResolutionStatusCommandOutput,
@@ -113,7 +142,15 @@ import {
   ListAppComponentRecommendationsCommandInput,
   ListAppComponentRecommendationsCommandOutput,
 } from "./commands/ListAppComponentRecommendationsCommand";
+import {
+  ListAppInputSourcesCommandInput,
+  ListAppInputSourcesCommandOutput,
+} from "./commands/ListAppInputSourcesCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import {
+  ListAppVersionAppComponentsCommandInput,
+  ListAppVersionAppComponentsCommandOutput,
+} from "./commands/ListAppVersionAppComponentsCommand";
 import {
   ListAppVersionResourceMappingsCommandInput,
   ListAppVersionResourceMappingsCommandOutput,
@@ -169,6 +206,15 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
+  UpdateAppVersionAppComponentCommandInput,
+  UpdateAppVersionAppComponentCommandOutput,
+} from "./commands/UpdateAppVersionAppComponentCommand";
+import { UpdateAppVersionCommandInput, UpdateAppVersionCommandOutput } from "./commands/UpdateAppVersionCommand";
+import {
+  UpdateAppVersionResourceCommandInput,
+  UpdateAppVersionResourceCommandOutput,
+} from "./commands/UpdateAppVersionResourceCommand";
+import {
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
@@ -183,14 +229,22 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AddDraftAppVersionResourceMappingsCommandInput
   | CreateAppCommandInput
+  | CreateAppVersionAppComponentCommandInput
+  | CreateAppVersionResourceCommandInput
   | CreateRecommendationTemplateCommandInput
   | CreateResiliencyPolicyCommandInput
   | DeleteAppAssessmentCommandInput
   | DeleteAppCommandInput
+  | DeleteAppInputSourceCommandInput
+  | DeleteAppVersionAppComponentCommandInput
+  | DeleteAppVersionResourceCommandInput
   | DeleteRecommendationTemplateCommandInput
   | DeleteResiliencyPolicyCommandInput
   | DescribeAppAssessmentCommandInput
   | DescribeAppCommandInput
+  | DescribeAppVersionAppComponentCommandInput
+  | DescribeAppVersionCommandInput
+  | DescribeAppVersionResourceCommandInput
   | DescribeAppVersionResourcesResolutionStatusCommandInput
   | DescribeAppVersionTemplateCommandInput
   | DescribeDraftAppVersionResourcesImportStatusCommandInput
@@ -200,6 +254,8 @@ export type ServiceInputTypes =
   | ListAppAssessmentsCommandInput
   | ListAppComponentCompliancesCommandInput
   | ListAppComponentRecommendationsCommandInput
+  | ListAppInputSourcesCommandInput
+  | ListAppVersionAppComponentsCommandInput
   | ListAppVersionResourceMappingsCommandInput
   | ListAppVersionResourcesCommandInput
   | ListAppVersionsCommandInput
@@ -219,19 +275,30 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAppCommandInput
+  | UpdateAppVersionAppComponentCommandInput
+  | UpdateAppVersionCommandInput
+  | UpdateAppVersionResourceCommandInput
   | UpdateResiliencyPolicyCommandInput;
 
 export type ServiceOutputTypes =
   | AddDraftAppVersionResourceMappingsCommandOutput
   | CreateAppCommandOutput
+  | CreateAppVersionAppComponentCommandOutput
+  | CreateAppVersionResourceCommandOutput
   | CreateRecommendationTemplateCommandOutput
   | CreateResiliencyPolicyCommandOutput
   | DeleteAppAssessmentCommandOutput
   | DeleteAppCommandOutput
+  | DeleteAppInputSourceCommandOutput
+  | DeleteAppVersionAppComponentCommandOutput
+  | DeleteAppVersionResourceCommandOutput
   | DeleteRecommendationTemplateCommandOutput
   | DeleteResiliencyPolicyCommandOutput
   | DescribeAppAssessmentCommandOutput
   | DescribeAppCommandOutput
+  | DescribeAppVersionAppComponentCommandOutput
+  | DescribeAppVersionCommandOutput
+  | DescribeAppVersionResourceCommandOutput
   | DescribeAppVersionResourcesResolutionStatusCommandOutput
   | DescribeAppVersionTemplateCommandOutput
   | DescribeDraftAppVersionResourcesImportStatusCommandOutput
@@ -241,6 +308,8 @@ export type ServiceOutputTypes =
   | ListAppAssessmentsCommandOutput
   | ListAppComponentCompliancesCommandOutput
   | ListAppComponentRecommendationsCommandOutput
+  | ListAppInputSourcesCommandOutput
+  | ListAppVersionAppComponentsCommandOutput
   | ListAppVersionResourceMappingsCommandOutput
   | ListAppVersionResourcesCommandOutput
   | ListAppVersionsCommandOutput
@@ -260,6 +329,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAppCommandOutput
+  | UpdateAppVersionAppComponentCommandOutput
+  | UpdateAppVersionCommandOutput
+  | UpdateAppVersionResourceCommandOutput
   | UpdateResiliencyPolicyCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

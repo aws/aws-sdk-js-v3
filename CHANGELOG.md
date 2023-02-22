@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
+
+
+### Features
+
+* **client-quicksight:** S3 data sources now accept a custom IAM role. ([6d0fccc](https://github.com/aws/aws-sdk-js-v3/commit/6d0fccc898738fdc0979dd25284ed645f0ee8fbf))
+* **client-resiliencehub:** In this release we improved resilience hub application creation and maintenance by introducing new resource and app component crud APIs, improving visibility and maintenance of application input sources and added support for additional information attributes to be provided by customers. ([014cd1c](https://github.com/aws/aws-sdk-js-v3/commit/014cd1cc61125583d1acdc68e2a43b32893d8be6))
+* **client-tnb:** This is the initial SDK release for AWS Telco Network Builder (TNB). AWS Telco Network Builder is a network automation service that helps you deploy and manage telecom networks. ([3365917](https://github.com/aws/aws-sdk-js-v3/commit/33659176e07e08612e60bdf8c6c53defcc02d0c7))
+* **clients:** update client endpoints as of 2023-02-21 ([6b873da](https://github.com/aws/aws-sdk-js-v3/commit/6b873da79251652bba32bb45bc3f9c107e3d2e88))
+
+
+
+
+
 # [3.275.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.274.0...v3.275.0) (2023-02-20)
 
 

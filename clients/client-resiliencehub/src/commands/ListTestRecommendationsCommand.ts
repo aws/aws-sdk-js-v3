@@ -29,7 +29,7 @@ export interface ListTestRecommendationsCommandInput extends ListTestRecommendat
 export interface ListTestRecommendationsCommandOutput extends ListTestRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the test recommendations for the Resilience Hub application.</p>
+ * <p>Lists the test recommendations for the AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

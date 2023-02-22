@@ -29,7 +29,7 @@ export interface ListAlarmRecommendationsCommandInput extends ListAlarmRecommend
 export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the alarm recommendations for a AWS Resilience Hub application.</p>
+ * <p>Lists the alarm recommendations for an AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

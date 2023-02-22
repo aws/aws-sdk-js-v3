@@ -29,7 +29,7 @@ export interface DescribeAppVersionTemplateCommandInput extends DescribeAppVersi
 export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVersionTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Describes details about an AWS Resilience Hub </p>
+ * <p>Describes details about an AWS Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

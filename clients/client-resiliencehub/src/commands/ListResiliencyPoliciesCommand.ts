@@ -29,7 +29,7 @@ export interface ListResiliencyPoliciesCommandInput extends ListResiliencyPolici
 export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the resiliency policies for the Resilience Hub applications.</p>
+ * <p>Lists the resiliency policies for the AWS Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
