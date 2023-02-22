@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.277.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.276.0...v3.277.0) (2023-02-22)
+
+
+### Features
+
+* **client-chime-sdk-voice:** This release introduces support for Voice Connector media metrics in the Amazon Chime SDK Voice namespace ([55c7cec](https://github.com/aws/aws-sdk-js-v3/commit/55c7cec9a55512b13b85dbeff0114a418638614f))
+* **client-cloudfront:** CloudFront now supports block lists in origin request policies so that you can forward all headers, cookies, or query string from viewer requests to the origin *except* for those specified in the block list. ([4835fc8](https://github.com/aws/aws-sdk-js-v3/commit/4835fc800bf05075eb76090c6202b3ccb5d9682f))
+* **client-datasync:** AWS DataSync has relaxed the minimum length constraint of AccessKey for Object Storage locations to 1. ([12260a9](https://github.com/aws/aws-sdk-js-v3/commit/12260a9df049f0ec91f2d1a204edece220b00d52))
+* **client-opensearch:** This release lets customers configure Off-peak window and software update related properties for a new/existing domain. It enhances the capabilities of StartServiceSoftwareUpdate API; adds 2 new APIs - ListScheduledActions & UpdateScheduledAction; and allows Auto-tune to make use of Off-peak window. ([6a0bbc2](https://github.com/aws/aws-sdk-js-v3/commit/6a0bbc237177f68d8a17578497c14586d7907865))
+* **client-rum:** CloudWatch RUM now supports CloudWatch Custom Metrics ([435c071](https://github.com/aws/aws-sdk-js-v3/commit/435c071109651ba50d36b1a69461a1b1f8169303))
+
+
+
+
+
 # [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
 
 
