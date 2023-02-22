@@ -45,11 +45,11 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * 					objects to stay in the CloudFront cache.</p>
  *             </li>
  *          </ul>
- *          <p>The headers, cookies, and query strings that are included in the cache key are
- * 			automatically included in requests that CloudFront sends to the origin. CloudFront sends a request
- * 			when it can't find an object in its cache that matches the request's cache key. If you
- * 			want to send values to the origin but <i>not</i> include them in the cache
- * 			key, use <code>OriginRequestPolicy</code>.</p>
+ *          <p>The headers, cookies, and query strings that are included in the cache key are also included
+ * 			in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an
+ * 			object in its cache that matches the request's cache key. If you want to send values to
+ * 			the origin but <i>not</i> include them in the cache key, use
+ * 			<code>OriginRequestPolicy</code>.</p>
  *          <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
