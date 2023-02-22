@@ -18,4 +18,5 @@ export * from "./Interfaces";
 export * from "./ListDomainsForPackagePaginator";
 export * from "./ListInstanceTypeDetailsPaginator";
 export * from "./ListPackagesForDomainPaginator";
+export * from "./ListScheduledActionsPaginator";
 export * from "./ListVersionsPaginator";
