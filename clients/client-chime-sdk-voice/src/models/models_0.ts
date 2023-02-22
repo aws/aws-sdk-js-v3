@@ -795,6 +795,7 @@ export interface GetVoiceConnectorLoggingConfigurationRequest {
 
 export interface LoggingConfiguration {
   EnableSIPLogs?: boolean;
+  EnableMediaMetricLogs?: boolean;
 }
 
 export interface GetVoiceConnectorLoggingConfigurationResponse {

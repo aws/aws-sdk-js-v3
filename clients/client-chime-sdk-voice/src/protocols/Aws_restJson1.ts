@@ -7348,6 +7348,7 @@ const serializeAws_restJson1GeoMatchParams = (input: GeoMatchParams, context: __
 
 const serializeAws_restJson1LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.EnableMediaMetricLogs != null && { EnableMediaMetricLogs: input.EnableMediaMetricLogs }),
     ...(input.EnableSIPLogs != null && { EnableSIPLogs: input.EnableSIPLogs }),
   };
 };
@@ -7734,6 +7735,7 @@ const deserializeAws_restJson1GeoMatchParams = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
+    EnableMediaMetricLogs: __expectBoolean(output.EnableMediaMetricLogs),
     EnableSIPLogs: __expectBoolean(output.EnableSIPLogs),
   } as any;
 };
