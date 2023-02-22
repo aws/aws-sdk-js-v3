@@ -7821,7 +7821,7 @@ export interface QueryOutput {
   Count?: number;
 
   /**
-   * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
+   * <p>The number of items evaluated, after any <code>QueryFilter</code> is applied. A high
    *                 <code>ScannedCount</code> value with few, or no, <code>Count</code> results
    *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and
    *                 ScannedCount</a> in the <i>Amazon DynamoDB Developer
