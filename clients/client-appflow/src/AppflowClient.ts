@@ -319,8 +319,7 @@ export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfig
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Amazon AppFlow API
- *           operations.</p>
+ *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Amazon AppFlow API operations.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -337,7 +336,8 @@ export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfig
  *             errors</a>: Client and server errors that all operations can return.</p>
  *             </li>
  *          </ul>
- *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow User Guide</a>.</p>
+ *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow
+ *         User Guide</a>.</p>
  *          <p>Amazon AppFlow API users can use vendor-specific mechanisms for OAuth, and include
  *       applicable OAuth attributes (such as <code>auth-code</code> and <code>redirecturi</code>) with
  *       the connector-specific <code>ConnectorProfileProperties</code> when creating a new connector
