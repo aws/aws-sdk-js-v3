@@ -30,6 +30,9 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
 
 /**
  * <p>Describes which data sources are enabled for the member account's detector.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

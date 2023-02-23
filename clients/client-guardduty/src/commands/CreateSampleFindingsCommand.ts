@@ -29,8 +29,8 @@ export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRe
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
- *       specified for <code>findingTypes</code>, the API generates example findings of all supported
+ * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
+ *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
  *       finding types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
