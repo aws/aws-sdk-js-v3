@@ -1,15 +1,14 @@
 import {
+  ContainerReflection,
   DefaultTheme,
   DefaultThemeRenderContext,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   JSX,
+  Options,
   PageEvent,
   Reflection,
   ReflectionCategory,
-  ReflectionKind,
-  Options,
-  ContainerReflection
-} from "typedoc";
+  ReflectionKind} from "typedoc";
 
 class SdkThemeContext extends DefaultThemeRenderContext {
 
@@ -157,6 +156,10 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       .col-menu {
         width: 80vw
       }
+
+      footer {
+
+      }
     `
 
     return <>
@@ -177,10 +180,21 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       })();
       `
       return <>
-      {oldFooter()}
-      <script>
-        <JSX.Raw html={script} />
-      </script>
+        {oldFooter()}
+        <footer>
+          <div class="container" id="awsdocs-legal-zone-copyright" style="padding: 2rem;">
+            <a href="https://aws.amazon.com/privacy" target="_blank">Privacy</a> |
+            <a href="https://aws.amazon.com/terms/" target="_blank"> Site terms</a> |
+            <a id="awsdocs-cookie-preferences-link" href="#"> Cookie preferences</a> |
+            <span class="copyright">
+              © 2023, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+            </span>
+          </div>
+        </footer>
+        <script>
+          <JSX.Raw html={script} />
+        </script>
+        <script type="text/javascript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js"></script>
       </>
     }
   }
@@ -216,6 +230,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                   <div class="tsd-accordion-details">
                     <ul>
                       {category.children.map((reflection) => {
+                        if (reflection.name.includes('documentation-generator')) return ''
                         let urlTo = this.urlTo(reflection)
                         if (urlTo && !urlTo.includes('.html')) {
                           urlTo += '/'
