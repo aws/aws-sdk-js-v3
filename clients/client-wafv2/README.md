@@ -26,7 +26,7 @@ see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapt
 </note>
 <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
 requests that are forwarded to an Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
-GraphQL API, or Amazon Cognito user pool. WAF also lets you control access to your content,
+GraphQL API, Amazon Cognito user pool, or App Runner service. WAF also lets you control access to your content,
 to protect the Amazon Web Services resource that WAF is monitoring. Based on conditions that
 you specify, such as the IP addresses that requests originate from or the values of query
 strings, the protected resource responds to requests with either the requested content, an HTTP 403 status code
@@ -39,7 +39,7 @@ Guide</a>.</p>
 <ul>
 <li>
 <p>For regional applications, you can use any of the endpoints in the list.
-A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user pool. </p>
+A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service. </p>
 </li>
 <li>
 <p>For Amazon CloudFront applications, you must use the API endpoint listed for
