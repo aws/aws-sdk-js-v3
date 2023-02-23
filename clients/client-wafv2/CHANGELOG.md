@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+
+### Features
+
+* **client-wafv2:** You can now associate an AWS WAF v2 web ACL with an AWS App Runner service. ([2faee2d](https://github.com/aws/aws-sdk-js-v3/commit/2faee2d0d546f5df3261abc76cc9fe364164409d))
+
+
+
+
+
 # [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

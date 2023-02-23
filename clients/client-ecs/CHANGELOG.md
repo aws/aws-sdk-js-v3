@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+
+### Features
+
+* **client-ecs:** This release supports deleting Amazon ECS task definitions that are in the INACTIVE state. ([689316a](https://github.com/aws/aws-sdk-js-v3/commit/689316adedabca4049f3ab4338b634a07eec0717))
+
+
+
+
+
 # [3.276.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.275.0...v3.276.0) (2023-02-21)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

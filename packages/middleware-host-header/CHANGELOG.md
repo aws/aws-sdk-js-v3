@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+
+### Bug Fixes
+
+* **middleware-host-header:** add port in host header if defined ([#4463](https://github.com/aws/aws-sdk-js-v3/issues/4463)) ([0bb8f31](https://github.com/aws/aws-sdk-js-v3/commit/0bb8f3141a0eae8dedb65f6c884f56e06ae90bba))
+
+
+
+
+
 # [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
 
 **Note:** Version bump only for package @aws-sdk/middleware-host-header

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.278.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.277.0...v3.278.0) (2023-02-23)
+
+
+### Bug Fixes
+
+* **middleware-host-header:** add port in host header if defined ([#4463](https://github.com/aws/aws-sdk-js-v3/issues/4463)) ([0bb8f31](https://github.com/aws/aws-sdk-js-v3/commit/0bb8f3141a0eae8dedb65f6c884f56e06ae90bba))
+
+
+### Features
+
+* **client-appflow:** This release enables the customers to choose whether to use Private Link for Metadata and Authorization call when using a private Salesforce connections ([136e139](https://github.com/aws/aws-sdk-js-v3/commit/136e139c921b28ce2e85941cda28b49755ed1f26))
+* **client-ecs:** This release supports deleting Amazon ECS task definitions that are in the INACTIVE state. ([689316a](https://github.com/aws/aws-sdk-js-v3/commit/689316adedabca4049f3ab4338b634a07eec0717))
+* **client-iot-wireless:** In this release, we add additional capabilities for the FUOTA which allows user to configure the fragment size, the sending interval and the redundancy ratio of the FUOTA tasks ([c5c9017](https://github.com/aws/aws-sdk-js-v3/commit/c5c9017047d5c093bb23aca844a35f54be5ccbbf))
+* **client-location:** This release adds support for using Maps APIs with an API Key in addition to AWS Cognito. This includes support for adding, listing, updating and deleting API Keys. ([594acf0](https://github.com/aws/aws-sdk-js-v3/commit/594acf0a055630b752eb41f35a8383144d3cc971))
+* **client-macie2:** This release adds support for a new finding type, Policy:IAMUser/S3BucketSharedWithCloudFront, and S3 bucket metadata that indicates if a bucket is shared with an Amazon CloudFront OAI or OAC. ([cd01113](https://github.com/aws/aws-sdk-js-v3/commit/cd01113173bd39ba8f8d4582dc2d9ab8814d72ba))
+* **client-wafv2:** You can now associate an AWS WAF v2 web ACL with an AWS App Runner service. ([2faee2d](https://github.com/aws/aws-sdk-js-v3/commit/2faee2d0d546f5df3261abc76cc9fe364164409d))
+* **clients:** update client endpoints as of 2023-02-23 ([9b28eda](https://github.com/aws/aws-sdk-js-v3/commit/9b28eda7f4599053703c058986beb0c924a6759b))
+
+
+
+
+
 # [3.277.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.276.0...v3.277.0) (2023-02-22)
 
 
