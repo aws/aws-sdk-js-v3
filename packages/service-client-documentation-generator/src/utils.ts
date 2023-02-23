@@ -1,6 +1,5 @@
-import { ProjectReflection, SourceDirectory } from "typedoc/dist/lib/models";
+import { sep } from "path";
+import { Reflection } from "typedoc";
 
-export const getCurrentClientDirectory = (event: { project: ProjectReflection }): SourceDirectory => {
-  const clientsDirectory = event.project.directory.directories["clients"].directories;
-  return Object.values(clientsDirectory).filter((directory) => directory?.directories?.src)[0];
-};
+export const isClientModel = (model: Reflection | undefined) =>
+  model?.sources?.[0]?.fullFileName.includes(`${sep}clients${sep}`);

@@ -44,7 +44,7 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
+    "typedoc": "^0.23.23",
     "typescript": "~4.6.2",
     "web-streams-polyfill": "^3.0.0"
   },
@@ -71,5 +71,8 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "lib/lib-storage"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }
