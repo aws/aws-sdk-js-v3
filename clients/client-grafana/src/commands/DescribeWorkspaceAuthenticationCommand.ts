@@ -31,7 +31,8 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Displays information about the authentication methods used in one Amazon Managed Grafana workspace.</p>
+ * <p>Displays information about the authentication methods used in one Amazon Managed Grafana
+ *             workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

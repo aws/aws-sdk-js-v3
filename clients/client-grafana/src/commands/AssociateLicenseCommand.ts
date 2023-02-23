@@ -30,8 +30,8 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
 
 /**
  * <p>Assigns a Grafana Enterprise license to a workspace. Upgrading to Grafana Enterprise
- *             incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a workspace to
- *                 Grafana Enterprise</a>.</p>
+ *             incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a
+ *                 workspace to Grafana Enterprise</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

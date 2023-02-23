@@ -29,7 +29,8 @@ export interface UpdatePermissionsCommandInput extends UpdatePermissionsRequest 
 export interface UpdatePermissionsCommandOutput extends UpdatePermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or <code>Editor</code> roles.</p>
+ * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or
+ *                 <code>Editor</code> roles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
