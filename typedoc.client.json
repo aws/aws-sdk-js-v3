@@ -1,5 +1,5 @@
 {
-  "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts"],
+  "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts", "**/ruleset.ts"],
   "excludeNotExported": true,
   "excludePrivate": true,
   "hideGenerator": true,
