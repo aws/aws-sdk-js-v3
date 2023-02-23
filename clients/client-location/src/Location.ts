@@ -51,6 +51,7 @@ import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
+import { CreateKeyCommand, CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
 import { CreateMapCommand, CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
 import {
   CreatePlaceIndexCommand,
@@ -72,6 +73,7 @@ import {
   DeleteGeofenceCollectionCommandInput,
   DeleteGeofenceCollectionCommandOutput,
 } from "./commands/DeleteGeofenceCollectionCommand";
+import { DeleteKeyCommand, DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
 import { DeleteMapCommand, DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
 import {
   DeletePlaceIndexCommand,
@@ -93,6 +95,7 @@ import {
   DescribeGeofenceCollectionCommandInput,
   DescribeGeofenceCollectionCommandOutput,
 } from "./commands/DescribeGeofenceCollectionCommand";
+import { DescribeKeyCommand, DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
 import { DescribeMapCommand, DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
 import {
   DescribePlaceIndexCommand,
@@ -157,6 +160,7 @@ import {
   ListGeofencesCommandInput,
   ListGeofencesCommandOutput,
 } from "./commands/ListGeofencesCommand";
+import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import { ListMapsCommand, ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
 import {
   ListPlaceIndexesCommand,
@@ -210,6 +214,7 @@ import {
   UpdateGeofenceCollectionCommandInput,
   UpdateGeofenceCollectionCommandOutput,
 } from "./commands/UpdateGeofenceCollectionCommand";
+import { UpdateKeyCommand, UpdateKeyCommandInput, UpdateKeyCommandOutput } from "./commands/UpdateKeyCommand";
 import { UpdateMapCommand, UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
 import {
   UpdatePlaceIndexCommand,
@@ -683,12 +688,45 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Creates a map resource in your AWS account, which provides map tiles of different
+   * <p>Creates an API key resource in your Amazon Web Services account, which lets you grant
+   *                 <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key
+   *             bearer.</p>
+   *          <important>
+   *             <p>The API keys feature is in preview. We may add, change, or remove
+   *             features before announcing general availability. For more information, see
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
+   *          </important>
+   */
+  public createKey(args: CreateKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyCommandOutput>;
+  public createKey(args: CreateKeyCommandInput, cb: (err: any, data?: CreateKeyCommandOutput) => void): void;
+  public createKey(
+    args: CreateKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKeyCommandOutput) => void
+  ): void;
+  public createKey(
+    args: CreateKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyCommandOutput) => void),
+    cb?: (err: any, data?: CreateKeyCommandOutput) => void
+  ): Promise<CreateKeyCommandOutput> | void {
+    const command = new CreateKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
    *             styles sourced from global location data providers.</p>
    *          <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
    *                 as delivery vehicles or employees, you must not use Esri as your geolocation
-   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
    *                     service terms</a> for more details.</p>
    *          </note>
    */
@@ -716,7 +754,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Creates a place index resource in your AWS account. Use a place index resource to
+   * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
    *             geocode addresses and other text queries by using the
    *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
    *             using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions
@@ -724,7 +762,7 @@ export class Location extends LocationClient {
    *          <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
    *                 as delivery vehicles or employees, you must not use Esri as your geolocation
-   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
    *                     service terms</a> for more details.</p>
    *          </note>
    */
@@ -758,14 +796,14 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Creates a route calculator resource in your AWS account.</p>
+   * <p>Creates a route calculator resource in your Amazon Web Services account.</p>
    *          <p>You can send requests to a route calculator resource to estimate travel time,
    *             distance, and get directions. A route calculator sources traffic and road network data
    *             from your chosen data provider.</p>
    *          <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
    *                 as delivery vehicles or employees, you must not use Esri as your geolocation
-   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
    *                     service terms</a> for more details.</p>
    *          </note>
    */
@@ -799,7 +837,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Creates a tracker resource in your AWS account, which lets you retrieve current and
+   * <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and
    *             historical location of devices.</p>
    */
   public createTracker(
@@ -832,7 +870,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Deletes a geofence collection from your AWS account.</p>
+   * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently. If the geofence collection is the
    *                 target of a tracker resource, the devices will no longer be monitored.</p>
@@ -868,7 +906,34 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Deletes a map resource from your AWS account.</p>
+   * <p>Deletes the specified API key. The API key must have been deactivated more than
+   *             90 days previously.</p>
+   */
+  public deleteKey(args: DeleteKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyCommandOutput>;
+  public deleteKey(args: DeleteKeyCommandInput, cb: (err: any, data?: DeleteKeyCommandOutput) => void): void;
+  public deleteKey(
+    args: DeleteKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKeyCommandOutput) => void
+  ): void;
+  public deleteKey(
+    args: DeleteKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteKeyCommandOutput) => void
+  ): Promise<DeleteKeyCommandOutput> | void {
+    const command = new DeleteKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a map resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently. If the map is being used in an application,
    *                 the map may not render.</p>
@@ -898,7 +963,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Deletes a place index resource from your AWS account.</p>
+   * <p>Deletes a place index resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently.</p>
    *          </note>
@@ -933,7 +998,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Deletes a route calculator resource from your AWS account.</p>
+   * <p>Deletes a route calculator resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently.</p>
    *          </note>
@@ -968,7 +1033,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Deletes a tracker resource from your AWS account.</p>
+   * <p>Deletes a tracker resource from your Amazon Web Services account.</p>
    *          <note>
    *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
    *                 encounter an error. Make sure that the target resource isn't a dependency for your
@@ -1026,6 +1091,37 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: DescribeGeofenceCollectionCommandOutput) => void
   ): Promise<DescribeGeofenceCollectionCommandOutput> | void {
     const command = new DescribeGeofenceCollectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the API key resource details.</p>
+   *          <important>
+   *             <p>The API keys feature is in preview. We may add, change, or remove
+   *             features before announcing general availability. For more information, see
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
+   *          </important>
+   */
+  public describeKey(args: DescribeKeyCommandInput, options?: __HttpHandlerOptions): Promise<DescribeKeyCommandOutput>;
+  public describeKey(args: DescribeKeyCommandInput, cb: (err: any, data?: DescribeKeyCommandOutput) => void): void;
+  public describeKey(
+    args: DescribeKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKeyCommandOutput) => void
+  ): void;
+  public describeKey(
+    args: DescribeKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeKeyCommandOutput) => void
+  ): Promise<DescribeKeyCommandOutput> | void {
+    const command = new DescribeKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1428,10 +1524,10 @@ export class Location extends LocationClient {
    *                 search request and the call to <code>GetPlace</code>.</p>
    *             <ul>
    *                <li>
-   *                   <p>Customer AWS account</p>
+   *                   <p>Customer Amazon Web Services account</p>
    *                </li>
    *                <li>
-   *                   <p>AWS Region</p>
+   *                   <p>Amazon Web Services Region</p>
    *                </li>
    *                <li>
    *                   <p>Data provider specified in the place index resource</p>
@@ -1495,7 +1591,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists geofence collections in your AWS account.</p>
+   * <p>Lists geofence collections in your Amazon Web Services account.</p>
    */
   public listGeofenceCollections(
     args: ListGeofenceCollectionsCommandInput,
@@ -1559,7 +1655,38 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists map resources in your AWS account.</p>
+   * <p>Lists API key resources in your Amazon Web Services account.</p>
+   *          <important>
+   *             <p>The API keys feature is in preview. We may add, change, or remove
+   *             features before announcing general availability. For more information, see
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
+   *          </important>
+   */
+  public listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
+  public listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
+  public listKeys(
+    args: ListKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKeysCommandOutput) => void
+  ): void;
+  public listKeys(
+    args: ListKeysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeysCommandOutput) => void),
+    cb?: (err: any, data?: ListKeysCommandOutput) => void
+  ): Promise<ListKeysCommandOutput> | void {
+    const command = new ListKeysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists map resources in your Amazon Web Services account.</p>
    */
   public listMaps(args: ListMapsCommandInput, options?: __HttpHandlerOptions): Promise<ListMapsCommandOutput>;
   public listMaps(args: ListMapsCommandInput, cb: (err: any, data?: ListMapsCommandOutput) => void): void;
@@ -1585,7 +1712,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists place index resources in your AWS account.</p>
+   * <p>Lists place index resources in your Amazon Web Services account.</p>
    */
   public listPlaceIndexes(
     args: ListPlaceIndexesCommandInput,
@@ -1617,7 +1744,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists route calculator resources in your AWS account.</p>
+   * <p>Lists route calculator resources in your Amazon Web Services account.</p>
    */
   public listRouteCalculators(
     args: ListRouteCalculatorsCommandInput,
@@ -1713,7 +1840,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists tracker resources in your AWS account.</p>
+   * <p>Lists tracker resources in your Amazon Web Services account.</p>
    */
   public listTrackers(
     args: ListTrackersCommandInput,
@@ -1886,11 +2013,11 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Assigns one or more tags (key-value pairs) to the specified Amazon
-   *             Location Service resource.</p>
-   *          <p>Tags can help you organize and categorize your resources.
-   *             You can also use them to scope user permissions, by granting a user
-   *             permission to access or change only resources with certain tag values.</p>
+   * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service
+   *             resource.</p>
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to
+   *             scope user permissions, by granting a user permission to access or change only resources
+   *             with certain tag values.</p>
    *          <p>You can use the <code>TagResource</code> operation with an Amazon Location Service
    *             resource that already has tags. If you specify a new tag key for the resource, this tag
    *             is appended to the tags already associated with the resource. If you specify a tag key
@@ -1975,6 +2102,37 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: UpdateGeofenceCollectionCommandOutput) => void
   ): Promise<UpdateGeofenceCollectionCommandOutput> | void {
     const command = new UpdateGeofenceCollectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified properties of a given API key resource.</p>
+   *          <important>
+   *             <p>The API keys feature is in preview. We may add, change, or remove
+   *             features before announcing general availability. For more information, see
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
+   *          </important>
+   */
+  public updateKey(args: UpdateKeyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateKeyCommandOutput>;
+  public updateKey(args: UpdateKeyCommandInput, cb: (err: any, data?: UpdateKeyCommandOutput) => void): void;
+  public updateKey(
+    args: UpdateKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyCommandOutput) => void
+  ): void;
+  public updateKey(
+    args: UpdateKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateKeyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateKeyCommandOutput) => void
+  ): Promise<UpdateKeyCommandOutput> | void {
+    const command = new UpdateKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

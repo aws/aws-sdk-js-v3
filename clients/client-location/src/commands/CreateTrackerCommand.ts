@@ -29,7 +29,7 @@ export interface CreateTrackerCommandInput extends CreateTrackerRequest {}
 export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a tracker resource in your AWS account, which lets you retrieve current and
+ * <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and
  *             historical location of devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

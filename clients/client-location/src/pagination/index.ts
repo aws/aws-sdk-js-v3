@@ -4,6 +4,7 @@ export * from "./Interfaces";
 export * from "./ListDevicePositionsPaginator";
 export * from "./ListGeofenceCollectionsPaginator";
 export * from "./ListGeofencesPaginator";
+export * from "./ListKeysPaginator";
 export * from "./ListMapsPaginator";
 export * from "./ListPlaceIndexesPaginator";
 export * from "./ListRouteCalculatorsPaginator";

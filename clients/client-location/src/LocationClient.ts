@@ -83,6 +83,7 @@ import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
+import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
 import { CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
 import { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "./commands/CreatePlaceIndexCommand";
 import {
@@ -94,6 +95,7 @@ import {
   DeleteGeofenceCollectionCommandInput,
   DeleteGeofenceCollectionCommandOutput,
 } from "./commands/DeleteGeofenceCollectionCommand";
+import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
 import { DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
 import { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "./commands/DeletePlaceIndexCommand";
 import {
@@ -105,6 +107,7 @@ import {
   DescribeGeofenceCollectionCommandInput,
   DescribeGeofenceCollectionCommandOutput,
 } from "./commands/DescribeGeofenceCollectionCommand";
+import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
 import { DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
 import { DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput } from "./commands/DescribePlaceIndexCommand";
 import {
@@ -139,6 +142,7 @@ import {
   ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand";
 import { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand";
+import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
 import { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand";
 import {
@@ -173,6 +177,7 @@ import {
   UpdateGeofenceCollectionCommandInput,
   UpdateGeofenceCollectionCommandOutput,
 } from "./commands/UpdateGeofenceCollectionCommand";
+import { UpdateKeyCommandInput, UpdateKeyCommandOutput } from "./commands/UpdateKeyCommand";
 import { UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
 import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "./commands/UpdatePlaceIndexCommand";
 import {
@@ -199,16 +204,19 @@ export type ServiceInputTypes =
   | CalculateRouteCommandInput
   | CalculateRouteMatrixCommandInput
   | CreateGeofenceCollectionCommandInput
+  | CreateKeyCommandInput
   | CreateMapCommandInput
   | CreatePlaceIndexCommandInput
   | CreateRouteCalculatorCommandInput
   | CreateTrackerCommandInput
   | DeleteGeofenceCollectionCommandInput
+  | DeleteKeyCommandInput
   | DeleteMapCommandInput
   | DeletePlaceIndexCommandInput
   | DeleteRouteCalculatorCommandInput
   | DeleteTrackerCommandInput
   | DescribeGeofenceCollectionCommandInput
+  | DescribeKeyCommandInput
   | DescribeMapCommandInput
   | DescribePlaceIndexCommandInput
   | DescribeRouteCalculatorCommandInput
@@ -225,6 +233,7 @@ export type ServiceInputTypes =
   | ListDevicePositionsCommandInput
   | ListGeofenceCollectionsCommandInput
   | ListGeofencesCommandInput
+  | ListKeysCommandInput
   | ListMapsCommandInput
   | ListPlaceIndexesCommandInput
   | ListRouteCalculatorsCommandInput
@@ -238,6 +247,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGeofenceCollectionCommandInput
+  | UpdateKeyCommandInput
   | UpdateMapCommandInput
   | UpdatePlaceIndexCommandInput
   | UpdateRouteCalculatorCommandInput
@@ -254,16 +264,19 @@ export type ServiceOutputTypes =
   | CalculateRouteCommandOutput
   | CalculateRouteMatrixCommandOutput
   | CreateGeofenceCollectionCommandOutput
+  | CreateKeyCommandOutput
   | CreateMapCommandOutput
   | CreatePlaceIndexCommandOutput
   | CreateRouteCalculatorCommandOutput
   | CreateTrackerCommandOutput
   | DeleteGeofenceCollectionCommandOutput
+  | DeleteKeyCommandOutput
   | DeleteMapCommandOutput
   | DeletePlaceIndexCommandOutput
   | DeleteRouteCalculatorCommandOutput
   | DeleteTrackerCommandOutput
   | DescribeGeofenceCollectionCommandOutput
+  | DescribeKeyCommandOutput
   | DescribeMapCommandOutput
   | DescribePlaceIndexCommandOutput
   | DescribeRouteCalculatorCommandOutput
@@ -280,6 +293,7 @@ export type ServiceOutputTypes =
   | ListDevicePositionsCommandOutput
   | ListGeofenceCollectionsCommandOutput
   | ListGeofencesCommandOutput
+  | ListKeysCommandOutput
   | ListMapsCommandOutput
   | ListPlaceIndexesCommandOutput
   | ListRouteCalculatorsCommandOutput
@@ -293,6 +307,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGeofenceCollectionCommandOutput
+  | UpdateKeyCommandOutput
   | UpdateMapCommandOutput
   | UpdatePlaceIndexCommandOutput
   | UpdateRouteCalculatorCommandOutput

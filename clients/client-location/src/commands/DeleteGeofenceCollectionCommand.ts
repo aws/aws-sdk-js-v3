@@ -29,7 +29,7 @@ export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceColl
 export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a geofence collection from your AWS account.</p>
+ * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the geofence collection is the
  *                 target of a tracker resource, the devices will no longer be monitored.</p>

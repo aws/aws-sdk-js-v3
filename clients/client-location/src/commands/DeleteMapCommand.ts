@@ -29,7 +29,7 @@ export interface DeleteMapCommandInput extends DeleteMapRequest {}
 export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a map resource from your AWS account.</p>
+ * <p>Deletes a map resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the map is being used in an application,
  *                 the map may not render.</p>

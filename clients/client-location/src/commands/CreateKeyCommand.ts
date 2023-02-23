@@ -15,39 +15,46 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
-  ListGeofenceCollectionsRequest,
-  ListGeofenceCollectionsRequestFilterSensitiveLog,
-  ListGeofenceCollectionsResponse,
-  ListGeofenceCollectionsResponseFilterSensitiveLog,
+  CreateKeyRequest,
+  CreateKeyRequestFilterSensitiveLog,
+  CreateKeyResponse,
+  CreateKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListGeofenceCollectionsCommand,
-  serializeAws_restJson1ListGeofenceCollectionsCommand,
+  deserializeAws_restJson1CreateKeyCommand,
+  serializeAws_restJson1CreateKeyCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListGeofenceCollectionsCommandInput extends ListGeofenceCollectionsRequest {}
-export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollectionsResponse, __MetadataBearer {}
+export interface CreateKeyCommandInput extends CreateKeyRequest {}
+export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Lists geofence collections in your Amazon Web Services account.</p>
+ * <p>Creates an API key resource in your Amazon Web Services account, which lets you grant
+ *                 <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key
+ *             bearer.</p>
+ *          <important>
+ *             <p>The API keys feature is in preview. We may add, change, or remove
+ *             features before announcing general availability. For more information, see
+ *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LocationClient, ListGeofenceCollectionsCommand } from "@aws-sdk/client-location"; // ES Modules import
- * // const { LocationClient, ListGeofenceCollectionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * import { LocationClient, CreateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, CreateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const command = new ListGeofenceCollectionsCommand(input);
+ * const command = new CreateKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListGeofenceCollectionsCommandInput} for command's `input` shape.
- * @see {@link ListGeofenceCollectionsCommandOutput} for command's `response` shape.
+ * @see {@link CreateKeyCommandInput} for command's `input` shape.
+ * @see {@link CreateKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
-export class ListGeofenceCollectionsCommand extends $Command<
-  ListGeofenceCollectionsCommandInput,
-  ListGeofenceCollectionsCommandOutput,
+export class CreateKeyCommand extends $Command<
+  CreateKeyCommandInput,
+  CreateKeyCommandOutput,
   LocationClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +69,7 @@ export class ListGeofenceCollectionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListGeofenceCollectionsCommandInput) {
+  constructor(readonly input: CreateKeyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +82,21 @@ export class ListGeofenceCollectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LocationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListGeofenceCollectionsCommandInput, ListGeofenceCollectionsCommandOutput> {
+  ): Handler<CreateKeyCommandInput, CreateKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListGeofenceCollectionsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateKeyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LocationClient";
-    const commandName = "ListGeofenceCollectionsCommand";
+    const commandName = "CreateKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeofenceCollectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGeofenceCollectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +106,12 @@ export class ListGeofenceCollectionsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListGeofenceCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGeofenceCollectionsCommand(input, context);
+  private serialize(input: CreateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateKeyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeofenceCollectionsCommandOutput> {
-    return deserializeAws_restJson1ListGeofenceCollectionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
+    return deserializeAws_restJson1CreateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra
