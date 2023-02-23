@@ -29,9 +29,9 @@ export interface UpdateResourcePositionCommandInput extends UpdateResourcePositi
 export interface UpdateResourcePositionCommandOutput extends UpdateResourcePositionResponse, __MetadataBearer {}
 
 /**
- * <p>Update the position information of a given wireless device or a wireless gateway resource. The postion
- *            coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
- *            World Geodetic System (WGS84)</a>.</p>
+ * <p>Update the position information of a given wireless device or a wireless gateway
+ *             resource. The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
+ *                 (WGS84)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

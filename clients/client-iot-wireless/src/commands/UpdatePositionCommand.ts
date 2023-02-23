@@ -32,10 +32,10 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  * @deprecated
  *
  * <p>Update the position information of a resource.</p>
- *         <important>
+ *          <important>
  *             <p>This action is no longer supported. Calls to update the position information
  *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

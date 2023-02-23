@@ -361,6 +361,25 @@ export interface UpdateFuotaTaskRequest {
    * <p>The firmware update role that is to be used with a FUOTA task.</p>
    */
   FirmwareUpdateRole?: string;
+
+  /**
+   * <p>The percentage of added redundant fragments. For example, if firmware file is
+   *             100 bytes and fragment size is 10 bytes, with <code>RedundancyPercent</code> set to 50(%),
+   *             the final number of encoded fragments is (100 / 10) + (100 / 10 * 50%) = 15.</p>
+   */
+  RedundancyPercent?: number;
+
+  /**
+   * <p>The size of each fragment in bytes. Currently only supported in fuota tasks with multicast groups.</p>
+   */
+  FragmentSizeBytes?: number;
+
+  /**
+   * <p>The interval of sending fragments in milliseconds. Currently the interval will be rounded to the nearest second.
+   *             Note that this interval only controls the timing when the cloud sends the fragments down.
+   *             The actual delay of receiving fragments at device side depends on the device's class and the communication delay with the cloud.</p>
+   */
+  FragmentIntervalMS?: number;
 }
 
 export interface UpdateFuotaTaskResponse {}
@@ -547,8 +566,8 @@ export interface UpdateResourceEventConfigurationResponse {}
 
 export interface UpdateResourcePositionRequest {
   /**
-   * <p>The identifier of the resource for which position information is updated. It can be the wireless
-   *            device ID or the wireless gateway ID depending on the resource type.</p>
+   * <p>The identifier of the resource for which position information is updated. It can be the
+   *             wireless device ID or the wireless gateway ID, depending on the resource type.</p>
    */
   ResourceIdentifier: string | undefined;
 
