@@ -63,7 +63,7 @@ export enum ManagedScalingStatus {
  * 			the Auto Scaling group. Amazon ECS manages a target tracking scaling policy using an Amazon ECS
  * 			managed CloudWatch metric with the specified <code>targetCapacity</code> value as the target
  * 			value for the metric. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling">Using managed scaling</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>If managed scaling is disabled, the user must manage the scaling of the Auto Scaling
+ *          <p>If managed scaling is off, the user must manage the scaling of the Auto Scaling
  * 			group.</p>
  */
 export interface ManagedScaling {
@@ -130,17 +130,17 @@ export interface AutoScalingGroupProvider {
   /**
    * <p>The managed termination protection setting to use for the Auto Scaling group capacity
    * 			provider. This determines whether the Auto Scaling group has managed termination
-   * 			protection. The default is disabled.</p>
+   * 			protection. The default is off.</p>
    *          <important>
    *             <p>When using managed termination protection, managed scaling must also be used
    * 				otherwise managed termination protection doesn't work.</p>
    *          </important>
-   *          <p>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in
-   * 			an Auto Scaling group that contain tasks from being terminated during a scale-in action.
-   * 			The Auto Scaling group and each instance in the Auto Scaling group must have instance
+   *          <p>When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto
+   * 			Scaling group that contain tasks from being terminated during a scale-in action. The
+   * 			Auto Scaling group and each instance in the Auto Scaling group must have instance
    * 			protection from scale-in actions enabled as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
-   *          <p>When managed termination protection is disabled, your Amazon EC2 instances aren't protected
-   * 			from termination when the Auto Scaling group scales in.</p>
+   *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from
+   * 			termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection | string;
 }
@@ -455,8 +455,8 @@ export interface ExecuteCommandLogConfiguration {
   cloudWatchLogGroupName?: string;
 
   /**
-   * <p>Determines whether to use encryption on the CloudWatch logs. If not specified,
-   * 			encryption will be disabled.</p>
+   * <p>Determines whether to use encryption on the CloudWatch logs. If not specified, encryption
+   * 			will be off.</p>
    */
   cloudWatchEncryptionEnabled?: boolean;
 
@@ -646,12 +646,11 @@ export interface ClusterSetting {
   name?: ClusterSettingName | string;
 
   /**
-   * <p>The value to set for the cluster setting. The supported values are
-   * 				<code>enabled</code> and <code>disabled</code>. If <code>enabled</code> is
-   * 			specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be
-   * 			disabled unless the <code>containerInsights</code> account setting is enabled. If a
-   * 			cluster value is specified, it will override the <code>containerInsights</code> value
-   * 			set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</p>
+   * <p>The value to set for the cluster setting. The supported values are <code>enabled</code> and
+   * 				<code>disabled</code>. If <code>enabled</code> is specified, CloudWatch Container Insights
+   * 			will be enabled for the cluster, otherwise it will be off unless the
+   * 				<code>containerInsights</code> account setting is turned on. If a cluster value is
+   * 			specified, it will override the <code>containerInsights</code> value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
    */
   value?: string;
 }
@@ -717,24 +716,24 @@ export interface CreateClusterRequest {
    * <p>The short name of one or more capacity providers to associate with the cluster. A
    * 			capacity provider must be associated with a cluster before it can be included as part of
    * 			the default capacity provider strategy of the cluster or used in a capacity provider
-   * 			strategy when calling the <a>CreateService</a> or <a>RunTask</a>
+   * 			strategy when calling the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a>
    * 			actions.</p>
    *          <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must be created but not associated with another cluster. New Auto Scaling group
-   * 			capacity providers can be created with the <a>CreateCapacityProvider</a> API
+   * 			capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a> API
    * 			operation.</p>
    *          <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
-   *          <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
+   *          <p>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html">PutCapacityProvider</a> API operation is used to update the
    * 			list of available capacity providers for a cluster after the cluster is created.</p>
    */
   capacityProviders?: string[];
 
   /**
    * <p>The capacity provider strategy to set as the default for the cluster. After a default
-   * 			capacity provider strategy is set for a cluster, when you call the <a>RunTask</a> or <a>CreateService</a> APIs with no capacity
+   * 			capacity provider strategy is set for a cluster, when you call the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a> APIs with no capacity
    * 			provider strategy or launch type specified, the default capacity provider strategy for
    * 			the cluster is used.</p>
    *          <p>If a default capacity provider strategy isn't defined for a cluster when it was
@@ -978,8 +977,8 @@ export interface Cluster {
   tags?: Tag[];
 
   /**
-   * <p>The settings for the cluster. This parameter indicates whether CloudWatch Container Insights
-   * 			is enabled or disabled for a cluster.</p>
+   * <p>The settings for the cluster. This parameter indicates whether CloudWatch Container Insights is on
+   * 			or off for a cluster.</p>
    */
   settings?: ClusterSetting[];
 
@@ -1102,7 +1101,7 @@ export interface DeploymentAlarms {
 /**
  * <note>
  *             <p>The deployment circuit breaker can only be used for services using the rolling
- * 				update (<code>ECS</code>) deployment type that aren't behind a Classic Load Balancer.</p>
+ * 				update (<code>ECS</code>) deployment type.</p>
  *          </note>
  *          <p>The <b>deployment circuit breaker</b> determines whether a
  * 			service deployment will fail if the service can't reach a steady state. If enabled, a
@@ -1136,10 +1135,13 @@ export interface DeploymentConfiguration {
    * 				update (<code>ECS</code>) deployment type.</p>
    *          </note>
    *          <p>The <b>deployment circuit breaker</b> determines whether a
-   * 			service deployment will fail if the service can't reach a steady state. If deployment
-   * 			circuit breaker is enabled, a service deployment will transition to a failed state and
-   * 			stop launching new tasks. If rollback is enabled, when a service deployment fails, the
-   * 			service is rolled back to the last deployment that completed successfully.</p>
+   * 			service deployment will fail if the service can't reach a steady state. If you use the deployment
+   * 			circuit breaker, a service deployment will transition to a failed state and
+   * 			stop launching new tasks. If  you use the rollback option, when a service deployment fails, the
+   * 			service is rolled back to the last deployment that completed successfully. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
+   * 				update</a> in the <i>Amazon Elastic Container Service Developer
+   * 					Guide</i>
+   *          </p>
    */
   deploymentCircuitBreaker?: DeploymentCircuitBreaker;
 
@@ -1373,7 +1375,7 @@ export interface AwsVpcConfiguration {
 }
 
 /**
- * <p>An object representing the network configuration for a task or service.</p>
+ * <p>The network configuration for a task or service.</p>
  */
 export interface NetworkConfiguration {
   /**
@@ -3096,9 +3098,8 @@ export interface DeleteAccountSettingRequest {
   name: SettingName | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the principal. It can be an IAM user, IAM role, or
-   * 			the root user. If you specify the root user, it disables the account setting for all IAM
-   * 			users, IAM roles, and the root user of the account unless an IAM user or role explicitly
+   * <p>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or
+   * 			the root user. If you specify the root user, it disables the account setting for all users, roles, and the root user of the account unless a user or role explicitly
    * 			overrides these settings. If this field is omitted, the setting is changed only for the
    * 			authenticated user.</p>
    */
@@ -3115,13 +3116,12 @@ export interface Setting {
   name?: SettingName | string;
 
   /**
-   * <p>Determines whether the account setting is enabled or disabled for the specified
-   * 			resource.</p>
+   * <p>Determines whether the account setting is on or off for the specified resource.</p>
    */
   value?: string;
 
   /**
-   * <p>The ARN of the principal. It can be an IAM user, IAM role, or the root user. If this
+   * <p>The ARN of the principal. It can be a user, role, or the root user. If this
    * 			field is omitted, the authenticated user is assumed.</p>
    */
   principalArn?: string;
@@ -3332,388 +3332,35 @@ export interface DeleteServiceResponse {
   service?: Service;
 }
 
-export interface DeleteTaskSetRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
-   * 			set found in to delete.</p>
-   */
-  cluster: string | undefined;
-
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to
-   * 			delete.</p>
-   */
-  service: string | undefined;
-
-  /**
-   * <p>The task set ID or full Amazon Resource Name (ARN) of the task set to delete.</p>
-   */
-  taskSet: string | undefined;
-
-  /**
-   * <p>If <code>true</code>, you can delete a task set even if it hasn't been scaled down to
-   * 			zero.</p>
-   */
-  force?: boolean;
-}
-
-export interface DeleteTaskSetResponse {
-  /**
-   * <p>Details about the task set.</p>
-   */
-  taskSet?: TaskSet;
-}
-
-/**
- * <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
- * 			Region.</p>
- */
-export class TaskSetNotFoundException extends __BaseException {
-  readonly name: "TaskSetNotFoundException" = "TaskSetNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TaskSetNotFoundException, __BaseException>) {
-    super({
-      name: "TaskSetNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TaskSetNotFoundException.prototype);
-  }
-}
-
-export interface DeregisterContainerInstanceRequest {
-  /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to
-   * 			deregister. If you do not specify a cluster, the default cluster is assumed.</p>
-   */
-  cluster?: string;
-
-  /**
-   * <p>The container instance ID or full ARN of the container instance to deregister. For
-   * 			more information about the ARN format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
-   */
-  containerInstance: string | undefined;
-
-  /**
-   * <p>Forces the container instance to be deregistered. If you have tasks running on the
-   * 			container instance when you deregister it with the <code>force</code> option, these
-   * 			tasks remain running until you terminate the instance or the tasks stop through some
-   * 			other means, but they're orphaned (no longer monitored or accounted for by Amazon ECS). If an
-   * 			orphaned task on your container instance is part of an Amazon ECS service, then the service
-   * 			scheduler starts another copy of that task, on a different container instance if
-   * 			possible. </p>
-   *          <p>Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer
-   * 			target group are deregistered. They begin connection draining according to the settings
-   * 			on the load balancer or target group.</p>
-   */
-  force?: boolean;
-}
-
-export enum InstanceHealthCheckState {
-  IMPAIRED = "IMPAIRED",
-  INITIALIZING = "INITIALIZING",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
-
-export enum InstanceHealthCheckType {
-  CONTAINER_RUNTIME = "CONTAINER_RUNTIME",
-}
-
-/**
- * <p>An object representing the result of a container instance health status check.</p>
- */
-export interface InstanceHealthCheckResult {
-  /**
-   * <p>The type of container instance health status that was verified.</p>
-   */
-  type?: InstanceHealthCheckType | string;
-
-  /**
-   * <p>The container instance health status.</p>
-   */
-  status?: InstanceHealthCheckState | string;
-
-  /**
-   * <p>The Unix timestamp for when the container instance health status was last
-   * 			updated.</p>
-   */
-  lastUpdated?: Date;
-
-  /**
-   * <p>The Unix timestamp for when the container instance health status last changed.</p>
-   */
-  lastStatusChange?: Date;
-}
-
-/**
- * <p>An object representing the health status of the container instance.</p>
- */
-export interface ContainerInstanceHealthStatus {
-  /**
-   * <p>The overall health status of the container instance. This is an aggregate status of
-   * 			all container instance health checks.</p>
-   */
-  overallStatus?: InstanceHealthCheckState | string;
-
-  /**
-   * <p>An array of objects representing the details of the container instance health
-   * 			status.</p>
-   */
-  details?: InstanceHealthCheckResult[];
-}
-
-/**
- * <p>Describes the resources available for a container instance.</p>
- */
-export interface Resource {
-  /**
-   * <p>The name of the resource, such as <code>CPU</code>, <code>MEMORY</code>,
-   * 				<code>PORTS</code>, <code>PORTS_UDP</code>, or a user-defined resource.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of the resource. Valid values: <code>INTEGER</code>, <code>DOUBLE</code>,
-   * 				<code>LONG</code>, or <code>STRINGSET</code>.</p>
-   */
-  type?: string;
-
-  /**
-   * <p>When the <code>doubleValue</code> type is set, the value of the resource must be a
-   * 			double precision floating-point type.</p>
-   */
-  doubleValue?: number;
-
-  /**
-   * <p>When the <code>longValue</code> type is set, the value of the resource must be an
-   * 			extended precision floating-point type.</p>
-   */
-  longValue?: number;
-
-  /**
-   * <p>When the <code>integerValue</code> type is set, the value of the resource must be an
-   * 			integer.</p>
-   */
-  integerValue?: number;
-
-  /**
-   * <p>When the <code>stringSetValue</code> type is set, the value of the resource must be a
-   * 			string type.</p>
-   */
-  stringSetValue?: string[];
-}
-
-/**
- * <p>The Docker and Amazon ECS container agent version information about a container
- * 			instance.</p>
- */
-export interface VersionInfo {
-  /**
-   * <p>The version number of the Amazon ECS container agent.</p>
-   */
-  agentVersion?: string;
-
-  /**
-   * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent/commits/master">amazon-ecs-agent
-   * 			</a> GitHub repository.</p>
-   */
-  agentHash?: string;
-
-  /**
-   * <p>The Docker version that's running on the container instance.</p>
-   */
-  dockerVersion?: string;
-}
-
-/**
- * <p>An Amazon EC2 or External instance that's running the Amazon ECS agent and has been registered
- * 			with a cluster.</p>
- */
-export interface ContainerInstance {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the container instance. For more information about the ARN format,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
-   */
-  containerInstanceArn?: string;
-
-  /**
-   * <p>The ID of the container instance. For Amazon EC2 instances, this value is the Amazon EC2
-   * 			instance ID. For external instances, this value is the Amazon Web Services Systems Manager managed instance ID.</p>
-   */
-  ec2InstanceId?: string;
-
-  /**
-   * <p>The capacity provider that's associated with the container instance.</p>
-   */
-  capacityProviderName?: string;
-
-  /**
-   * <p>The version counter for the container instance. Every time a container instance
-   * 			experiences a change that triggers a CloudWatch event, the version counter is
-   * 			incremented. If you're replicating your Amazon ECS container instance state with CloudWatch
-   * 			Events, you can compare the version of a container instance reported by the Amazon ECS APIs
-   * 			with the version reported in CloudWatch Events for the container instance (inside the
-   * 				<code>detail</code> object) to verify that the version in your event stream is
-   * 			current.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The version information for the Amazon ECS container agent and Docker daemon running on the
-   * 			container instance.</p>
-   */
-  versionInfo?: VersionInfo;
-
-  /**
-   * <p>For CPU and memory resource types, this parameter describes the remaining CPU and
-   * 			memory that wasn't already allocated to tasks and is therefore available for new tasks.
-   * 			For port resource types, this parameter describes the ports that were reserved by the
-   * 			Amazon ECS container agent (at instance registration time) and any task containers that have
-   * 			reserved port mappings on the host (with the <code>host</code> or <code>bridge</code>
-   * 			network mode). Any port that's not specified here is available for new tasks.</p>
-   */
-  remainingResources?: Resource[];
-
-  /**
-   * <p>For CPU and memory resource types, this parameter describes the amount of each
-   * 			resource that was available on the container instance when the container agent
-   * 			registered it with Amazon ECS. This value represents the total amount of CPU and memory that
-   * 			can be allocated on this container instance to tasks. For port resource types, this
-   * 			parameter describes the ports that were reserved by the Amazon ECS container agent when it
-   * 			registered the container instance with Amazon ECS.</p>
-   */
-  registeredResources?: Resource[];
-
-  /**
-   * <p>The status of the container instance. The valid values are <code>REGISTERING</code>,
-   * 				<code>REGISTRATION_FAILED</code>, <code>ACTIVE</code>, <code>INACTIVE</code>,
-   * 				<code>DEREGISTERING</code>, or <code>DRAINING</code>.</p>
-   *          <p>If your account has opted in to the <code>awsvpcTrunking</code> account setting, then
-   * 			any newly registered container instance will transition to a <code>REGISTERING</code>
-   * 			status while the trunk elastic network interface is provisioned for the instance. If the
-   * 			registration fails, the instance will transition to a <code>REGISTRATION_FAILED</code>
-   * 			status. You can describe the container instance and see the reason for failure in the
-   * 				<code>statusReason</code> parameter. Once the container instance is terminated, the
-   * 			instance transitions to a <code>DEREGISTERING</code> status while the trunk elastic
-   * 			network interface is deprovisioned. The instance then transitions to an
-   * 				<code>INACTIVE</code> status.</p>
-   *          <p>The <code>ACTIVE</code> status indicates that the container instance can accept tasks.
-   * 			The <code>DRAINING</code> indicates that new tasks aren't placed on the container
-   * 			instance and any service tasks running on the container instance are removed if
-   * 			possible. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container instance draining</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   */
-  status?: string;
-
-  /**
-   * <p>The reason that the container instance reached its current status.</p>
-   */
-  statusReason?: string;
-
-  /**
-   * <p>This parameter returns <code>true</code> if the agent is connected to Amazon ECS. An
-   * 			instance with an agent that may be unhealthy or stopped return <code>false</code>. Only
-   * 			instances connected to an agent can accept task placement requests.</p>
-   */
-  agentConnected?: boolean;
-
-  /**
-   * <p>The number of tasks on the container instance that are in the <code>RUNNING</code>
-   * 			status.</p>
-   */
-  runningTasksCount?: number;
-
-  /**
-   * <p>The number of tasks on the container instance that are in the <code>PENDING</code>
-   * 			status.</p>
-   */
-  pendingTasksCount?: number;
-
-  /**
-   * <p>The status of the most recent agent update. If an update wasn't ever requested, this
-   * 			value is <code>NULL</code>.</p>
-   */
-  agentUpdateStatus?: AgentUpdateStatus | string;
-
-  /**
-   * <p>The attributes set for the container instance, either by the Amazon ECS container agent at
-   * 			instance registration or manually with the <a>PutAttributes</a>
-   * 			operation.</p>
-   */
-  attributes?: Attribute[];
-
-  /**
-   * <p>The Unix timestamp for the time when the container instance was registered.</p>
-   */
-  registeredAt?: Date;
-
-  /**
-   * <p>The resources attached to a container instance, such as an elastic network
-   * 			interface.</p>
-   */
-  attachments?: Attachment[];
-
-  /**
-   * <p>The metadata that you apply to the container instance to help you categorize and
-   * 			organize them. Each tag consists of a key and an optional value. You define both.</p>
-   *          <p>The following basic restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per resource - 50</p>
-   *             </li>
-   *             <li>
-   *                <p>For each resource, each tag key must be unique, and each tag key can have only
-   *                     one value.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length - 128 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length - 256 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>If your tagging schema is used across multiple services and resources,
-   *                     remember that other services may have restrictions on allowed characters.
-   *                     Generally allowed characters are: letters, numbers, and spaces representable in
-   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
-   *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
-   *                     this prefix do not count against your tags per resource limit.</p>
-   *             </li>
-   *          </ul>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>An object representing the health status of the container instance.</p>
-   */
-  healthStatus?: ContainerInstanceHealthStatus;
-}
-
-export interface DeregisterContainerInstanceResponse {
-  /**
-   * <p>The container instance that was deregistered.</p>
-   */
-  containerInstance?: ContainerInstance;
-}
-
-export interface DeregisterTaskDefinitionRequest {
+export interface DeleteTaskDefinitionsRequest {
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-   * 			full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a
+   * 			full Amazon Resource Name (ARN) of the task definition to delete. You must specify a
    * 				<code>revision</code>.</p>
+   *          <p>You can specify up to 10 task definitions as a comma separated list.</p>
    */
-  taskDefinition: string | undefined;
+  taskDefinitions: string[] | undefined;
+}
+
+/**
+ * <p>A failed resource. For a list of common causes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
+ * 				reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface Failure {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the failed resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The reason for the failure.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The details of the failure.</p>
+   */
+  detail?: string;
 }
 
 export enum Compatibility {
@@ -3980,14 +3627,14 @@ export interface HealthCheck {
    * 			healthy. The string array must start with <code>CMD</code> to run the command arguments
    * 			directly, or <code>CMD-SHELL</code> to run the command with the container's default
    * 			shell. </p>
-   *          <p> When you use the Amazon Web Services Management Console JSON panel, the Command Line Interface, or the APIs, enclose the list
-   * 			of commands in brackets.</p>
+   *          <p> When you use the Amazon Web Services Management Console JSON panel, the Command Line Interface, or the APIs, enclose the list of
+   * 			commands in double quotes and brackets.</p>
    *          <p>
    *             <code>[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]</code>
    *          </p>
-   *          <p>You don't need to include the brackets when you use the Amazon Web Services Management Console.</p>
+   *          <p>You don't include the double quotes and brackets when you use the Amazon Web Services Management Console.</p>
    *          <p>
-   *             <code> "CMD-SHELL", "curl -f http://localhost/ || exit 1" </code>
+   *             <code> CMD-SHELL, curl -f http://localhost/ || exit 1</code>
    *          </p>
    *          <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. For
    * 			more information, see <code>HealthCheck</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
@@ -4017,7 +3664,7 @@ export interface HealthCheck {
   /**
    * <p>The optional grace period to provide containers time to bootstrap before failed health
    * 			checks count towards the maximum number of retries. You can specify between 0 and 300
-   * 			seconds. By default, the <code>startPeriod</code> is disabled.</p>
+   * 			seconds. By default, the <code>startPeriod</code> is off.</p>
    *          <note>
    *             <p>If a health check succeeds within the <code>startPeriod</code>, then the container
    * 				is considered healthy and any subsequent failures count toward the maximum number of
@@ -4359,7 +4006,8 @@ export interface PortMapping {
   appProtocol?: ApplicationProtocol | string;
 
   /**
-   * <p>The port number range on the container that's bound to the dynamically mapped host port range.</p>
+   * <p>The port number range on the container that's bound to the dynamically mapped host port
+   * 			range. </p>
    *          <p>The following rules apply when you specify a <code>containerPortRange</code>:</p>
    *          <ul>
    *             <li>
@@ -4532,8 +4180,10 @@ export enum UlimitName {
  * 							the <code>nofile</code> resource limit parameter which Fargate
  * 							overrides. The <code>nofile</code> resource limit sets a restriction on
  * 							the number of open files that a container can use. The default
- * 								<code>nofile</code> soft limit is <code>1024</code> and hard limit
+ * 								<code>nofile</code> soft limit is <code>1024</code> and the default hard limit
  * 							is <code>4096</code>.</p>
+ *          <p>You can specify the <code>ulimit</code> settings for a container in a task
+ * 			definition.</p>
  */
 export interface Ulimit {
   /**
@@ -5044,9 +4694,9 @@ export interface ContainerDefinition {
   workingDirectory?: string;
 
   /**
-   * <p>When this parameter is true, networking is disabled within the container. This
-   * 			parameter maps to <code>NetworkDisabled</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
-   * 			section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.</p>
+   * <p>When this parameter is true, networking is off within the container. This parameter maps to
+   * 				<code>NetworkDisabled</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of
+   * 			the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.</p>
    *          <note>
    *             <p>This parameter is not supported for Windows containers.</p>
    *          </note>
@@ -5169,7 +4819,7 @@ export interface ContainerDefinition {
    * 							the <code>nofile</code> resource limit parameter which Fargate
    * 							overrides. The <code>nofile</code> resource limit sets a restriction on
    * 							the number of open files that a container can use. The default
-   * 								<code>nofile</code> soft limit is <code>1024</code> and hard limit
+   * 								<code>nofile</code> soft limit is <code>1024</code> and the default hard limit
    * 							is <code>4096</code>.</p>
    *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
    *          </p>
@@ -5443,6 +5093,7 @@ export interface RuntimePlatform {
 
 export enum TaskDefinitionStatus {
   ACTIVE = "ACTIVE",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
   INACTIVE = "INACTIVE",
 }
 
@@ -5525,7 +5176,7 @@ export interface EFSAuthorizationConfig {
   accessPointId?: string;
 
   /**
-   * <p>Determines whether to use the Amazon ECS task IAM role defined in a task definition when
+   * <p>Determines whether to use the Amazon ECS task role defined in a task definition when
    * 			mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the
    * 				<code>EFSVolumeConfiguration</code>. If this parameter is omitted, the default value
    * 			of <code>DISABLED</code> is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints">Using
@@ -6020,6 +5671,402 @@ export interface TaskDefinition {
   ephemeralStorage?: EphemeralStorage;
 }
 
+export interface DeleteTaskDefinitionsResponse {
+  /**
+   * <p>The list of deleted task definitions.</p>
+   */
+  taskDefinitions?: TaskDefinition[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   */
+  failures?: Failure[];
+}
+
+export interface DeleteTaskSetRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
+   * 			set found in to delete.</p>
+   */
+  cluster: string | undefined;
+
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to
+   * 			delete.</p>
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The task set ID or full Amazon Resource Name (ARN) of the task set to delete.</p>
+   */
+  taskSet: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, you can delete a task set even if it hasn't been scaled down to
+   * 			zero.</p>
+   */
+  force?: boolean;
+}
+
+export interface DeleteTaskSetResponse {
+  /**
+   * <p>Details about the task set.</p>
+   */
+  taskSet?: TaskSet;
+}
+
+/**
+ * <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
+ * 			Region.</p>
+ */
+export class TaskSetNotFoundException extends __BaseException {
+  readonly name: "TaskSetNotFoundException" = "TaskSetNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskSetNotFoundException, __BaseException>) {
+    super({
+      name: "TaskSetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskSetNotFoundException.prototype);
+  }
+}
+
+export interface DeregisterContainerInstanceRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to
+   * 			deregister. If you do not specify a cluster, the default cluster is assumed.</p>
+   */
+  cluster?: string;
+
+  /**
+   * <p>The container instance ID or full ARN of the container instance to deregister. For
+   * 			more information about the ARN format, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   */
+  containerInstance: string | undefined;
+
+  /**
+   * <p>Forces the container instance to be deregistered. If you have tasks running on the
+   * 			container instance when you deregister it with the <code>force</code> option, these
+   * 			tasks remain running until you terminate the instance or the tasks stop through some
+   * 			other means, but they're orphaned (no longer monitored or accounted for by Amazon ECS). If an
+   * 			orphaned task on your container instance is part of an Amazon ECS service, then the service
+   * 			scheduler starts another copy of that task, on a different container instance if
+   * 			possible. </p>
+   *          <p>Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer
+   * 			target group are deregistered. They begin connection draining according to the settings
+   * 			on the load balancer or target group.</p>
+   */
+  force?: boolean;
+}
+
+export enum InstanceHealthCheckState {
+  IMPAIRED = "IMPAIRED",
+  INITIALIZING = "INITIALIZING",
+  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
+  OK = "OK",
+}
+
+export enum InstanceHealthCheckType {
+  CONTAINER_RUNTIME = "CONTAINER_RUNTIME",
+}
+
+/**
+ * <p>An object representing the result of a container instance health status check.</p>
+ */
+export interface InstanceHealthCheckResult {
+  /**
+   * <p>The type of container instance health status that was verified.</p>
+   */
+  type?: InstanceHealthCheckType | string;
+
+  /**
+   * <p>The container instance health status.</p>
+   */
+  status?: InstanceHealthCheckState | string;
+
+  /**
+   * <p>The Unix timestamp for when the container instance health status was last
+   * 			updated.</p>
+   */
+  lastUpdated?: Date;
+
+  /**
+   * <p>The Unix timestamp for when the container instance health status last changed.</p>
+   */
+  lastStatusChange?: Date;
+}
+
+/**
+ * <p>An object representing the health status of the container instance.</p>
+ */
+export interface ContainerInstanceHealthStatus {
+  /**
+   * <p>The overall health status of the container instance. This is an aggregate status of
+   * 			all container instance health checks.</p>
+   */
+  overallStatus?: InstanceHealthCheckState | string;
+
+  /**
+   * <p>An array of objects representing the details of the container instance health
+   * 			status.</p>
+   */
+  details?: InstanceHealthCheckResult[];
+}
+
+/**
+ * <p>Describes the resources available for a container instance.</p>
+ */
+export interface Resource {
+  /**
+   * <p>The name of the resource, such as <code>CPU</code>, <code>MEMORY</code>,
+   * 				<code>PORTS</code>, <code>PORTS_UDP</code>, or a user-defined resource.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of the resource. Valid values: <code>INTEGER</code>, <code>DOUBLE</code>,
+   * 				<code>LONG</code>, or <code>STRINGSET</code>.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>When the <code>doubleValue</code> type is set, the value of the resource must be a
+   * 			double precision floating-point type.</p>
+   */
+  doubleValue?: number;
+
+  /**
+   * <p>When the <code>longValue</code> type is set, the value of the resource must be an
+   * 			extended precision floating-point type.</p>
+   */
+  longValue?: number;
+
+  /**
+   * <p>When the <code>integerValue</code> type is set, the value of the resource must be an
+   * 			integer.</p>
+   */
+  integerValue?: number;
+
+  /**
+   * <p>When the <code>stringSetValue</code> type is set, the value of the resource must be a
+   * 			string type.</p>
+   */
+  stringSetValue?: string[];
+}
+
+/**
+ * <p>The Docker and Amazon ECS container agent version information about a container
+ * 			instance.</p>
+ */
+export interface VersionInfo {
+  /**
+   * <p>The version number of the Amazon ECS container agent.</p>
+   */
+  agentVersion?: string;
+
+  /**
+   * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent/commits/master">amazon-ecs-agent
+   * 			</a> GitHub repository.</p>
+   */
+  agentHash?: string;
+
+  /**
+   * <p>The Docker version that's running on the container instance.</p>
+   */
+  dockerVersion?: string;
+}
+
+/**
+ * <p>An Amazon EC2 or External instance that's running the Amazon ECS agent and has been registered
+ * 			with a cluster.</p>
+ */
+export interface ContainerInstance {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container instance. For more information about the ARN format,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   */
+  containerInstanceArn?: string;
+
+  /**
+   * <p>The ID of the container instance. For Amazon EC2 instances, this value is the Amazon EC2
+   * 			instance ID. For external instances, this value is the Amazon Web Services Systems Manager managed instance ID.</p>
+   */
+  ec2InstanceId?: string;
+
+  /**
+   * <p>The capacity provider that's associated with the container instance.</p>
+   */
+  capacityProviderName?: string;
+
+  /**
+   * <p>The version counter for the container instance. Every time a container instance
+   * 			experiences a change that triggers a CloudWatch event, the version counter is
+   * 			incremented. If you're replicating your Amazon ECS container instance state with CloudWatch
+   * 			Events, you can compare the version of a container instance reported by the Amazon ECS APIs
+   * 			with the version reported in CloudWatch Events for the container instance (inside the
+   * 				<code>detail</code> object) to verify that the version in your event stream is
+   * 			current.</p>
+   */
+  version?: number;
+
+  /**
+   * <p>The version information for the Amazon ECS container agent and Docker daemon running on the
+   * 			container instance.</p>
+   */
+  versionInfo?: VersionInfo;
+
+  /**
+   * <p>For CPU and memory resource types, this parameter describes the remaining CPU and
+   * 			memory that wasn't already allocated to tasks and is therefore available for new tasks.
+   * 			For port resource types, this parameter describes the ports that were reserved by the
+   * 			Amazon ECS container agent (at instance registration time) and any task containers that have
+   * 			reserved port mappings on the host (with the <code>host</code> or <code>bridge</code>
+   * 			network mode). Any port that's not specified here is available for new tasks.</p>
+   */
+  remainingResources?: Resource[];
+
+  /**
+   * <p>For CPU and memory resource types, this parameter describes the amount of each
+   * 			resource that was available on the container instance when the container agent
+   * 			registered it with Amazon ECS. This value represents the total amount of CPU and memory that
+   * 			can be allocated on this container instance to tasks. For port resource types, this
+   * 			parameter describes the ports that were reserved by the Amazon ECS container agent when it
+   * 			registered the container instance with Amazon ECS.</p>
+   */
+  registeredResources?: Resource[];
+
+  /**
+   * <p>The status of the container instance. The valid values are <code>REGISTERING</code>,
+   * 				<code>REGISTRATION_FAILED</code>, <code>ACTIVE</code>, <code>INACTIVE</code>,
+   * 				<code>DEREGISTERING</code>, or <code>DRAINING</code>.</p>
+   *          <p>If your account has opted in to the <code>awsvpcTrunking</code> account setting, then
+   * 			any newly registered container instance will transition to a <code>REGISTERING</code>
+   * 			status while the trunk elastic network interface is provisioned for the instance. If the
+   * 			registration fails, the instance will transition to a <code>REGISTRATION_FAILED</code>
+   * 			status. You can describe the container instance and see the reason for failure in the
+   * 				<code>statusReason</code> parameter. Once the container instance is terminated, the
+   * 			instance transitions to a <code>DEREGISTERING</code> status while the trunk elastic
+   * 			network interface is deprovisioned. The instance then transitions to an
+   * 				<code>INACTIVE</code> status.</p>
+   *          <p>The <code>ACTIVE</code> status indicates that the container instance can accept tasks.
+   * 			The <code>DRAINING</code> indicates that new tasks aren't placed on the container
+   * 			instance and any service tasks running on the container instance are removed if
+   * 			possible. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container instance draining</a> in the
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The reason that the container instance reached its current status.</p>
+   */
+  statusReason?: string;
+
+  /**
+   * <p>This parameter returns <code>true</code> if the agent is connected to Amazon ECS. An
+   * 			instance with an agent that may be unhealthy or stopped return <code>false</code>. Only
+   * 			instances connected to an agent can accept task placement requests.</p>
+   */
+  agentConnected?: boolean;
+
+  /**
+   * <p>The number of tasks on the container instance that are in the <code>RUNNING</code>
+   * 			status.</p>
+   */
+  runningTasksCount?: number;
+
+  /**
+   * <p>The number of tasks on the container instance that are in the <code>PENDING</code>
+   * 			status.</p>
+   */
+  pendingTasksCount?: number;
+
+  /**
+   * <p>The status of the most recent agent update. If an update wasn't ever requested, this
+   * 			value is <code>NULL</code>.</p>
+   */
+  agentUpdateStatus?: AgentUpdateStatus | string;
+
+  /**
+   * <p>The attributes set for the container instance, either by the Amazon ECS container agent at
+   * 			instance registration or manually with the <a>PutAttributes</a>
+   * 			operation.</p>
+   */
+  attributes?: Attribute[];
+
+  /**
+   * <p>The Unix timestamp for the time when the container instance was registered.</p>
+   */
+  registeredAt?: Date;
+
+  /**
+   * <p>The resources attached to a container instance, such as an elastic network
+   * 			interface.</p>
+   */
+  attachments?: Attachment[];
+
+  /**
+   * <p>The metadata that you apply to the container instance to help you categorize and
+   * 			organize them. Each tag consists of a key and an optional value. You define both.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only
+   *                     one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources,
+   *                     remember that other services may have restrictions on allowed characters.
+   *                     Generally allowed characters are: letters, numbers, and spaces representable in
+   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
+   *                     combination of such as a prefix for either keys or values as it is reserved for
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     this prefix do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>An object representing the health status of the container instance.</p>
+   */
+  healthStatus?: ContainerInstanceHealthStatus;
+}
+
+export interface DeregisterContainerInstanceResponse {
+  /**
+   * <p>The container instance that was deregistered.</p>
+   */
+  containerInstance?: ContainerInstance;
+}
+
+export interface DeregisterTaskDefinitionRequest {
+  /**
+   * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
+   * 			full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a
+   * 				<code>revision</code>.</p>
+   */
+  taskDefinition: string | undefined;
+}
+
 export interface DeregisterTaskDefinitionResponse {
   /**
    * <p>The full description of the deregistered task.</p>
@@ -6071,27 +6118,6 @@ export interface DescribeCapacityProvidersRequest {
    *          </note>
    */
   nextToken?: string;
-}
-
-/**
- * <p>A failed resource. For a list of common causes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
- * 				reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- */
-export interface Failure {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the failed resource.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The reason for the failure.</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>The details of the failure.</p>
-   */
-  detail?: string;
 }
 
 export interface DescribeCapacityProvidersResponse {
@@ -6397,7 +6423,8 @@ export interface NetworkBinding {
   protocol?: TransportProtocol | string;
 
   /**
-   * <p>The port number range on the container that's bound to the dynamically mapped host port range.</p>
+   * <p>The port number range on the container that's bound to the dynamically mapped host port
+   * 			range.</p>
    *          <p>The following rules apply when you specify a <code>containerPortRange</code>:</p>
    *          <ul>
    *             <li>
@@ -6683,7 +6710,7 @@ export interface TaskOverride {
   inferenceAcceleratorOverrides?: InferenceAcceleratorOverride[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more
+   * <p>The Amazon Resource Name (ARN) of the task execution role override for the task. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS task
    * 				execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -6695,7 +6722,7 @@ export interface TaskOverride {
   memory?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers
+   * <p>The Amazon Resource Name (ARN) of the role that containers in this task can assume. All containers
    * 			in this task are granted the permissions that are specified in this role. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM Role for Tasks</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -7324,7 +7351,7 @@ export interface ProtectedTask {
   taskArn?: string;
 
   /**
-   * <p>The protection status of the task. If scale-in protection is enabled for a task, the
+   * <p>The protection status of the task. If scale-in protection is on for a task, the
    * 			value is <code>true</code>. Otherwise, it is <code>false</code>.</p>
    */
   protectionEnabled?: boolean;
@@ -7396,7 +7423,7 @@ export interface ListAccountSettingsRequest {
   value?: string;
 
   /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
+   * <p>The ARN of the principal, which can be a user, role, or the root user. If
    * 			this field is omitted, the account settings are listed only for the authenticated
    * 			user.</p>
    *          <note>
@@ -8045,9 +8072,9 @@ export interface PutAccountSettingRequest {
   value: string | undefined;
 
   /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
-   * 			you specify the root user, it modifies the account setting for all IAM users, IAM roles,
-   * 			and the root user of the account unless an IAM user or role explicitly overrides these
+   * <p>The ARN of the principal, which can be a user, role, or the root user. If
+   * 			you specify the root user, it modifies the account setting for all users, roles,
+   * 			and the root user of the account unless a user or role explicitly overrides these
    * 			settings. If this field is omitted, the setting is changed only for the authenticated
    * 			user.</p>
    *          <note>
@@ -8847,10 +8874,10 @@ export interface RunTaskRequest {
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    * 			full ARN of the task definition to run. If a <code>revision</code> isn't specified,
    * 			the latest <code>ACTIVE</code> revision is used.</p>
-   *          <p>When you create an IAM policy for run-task, you can set the resource to be the latest
+   *          <p>When you create a policy for run-task, you can set the resource to be the latest
    * 			task definition revision, or a specific revision.</p>
    *          <p>The full ARN value must match the value that you specified as the
-   * 				<code>Resource</code> of the IAM principal's permissions policy.</p>
+   * 				<code>Resource</code> of the principal's permissions policy.</p>
    *          <p>When you specify the policy resource as the latest task definition version (by setting
    * 			the <code>Resource</code> in the policy to
    * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>),
@@ -9022,7 +9049,7 @@ export interface StopTaskRequest {
   cluster?: string;
 
   /**
-   * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
+   * <p>The task ID of the task to stop.</p>
    */
   task: string | undefined;
 
@@ -9331,12 +9358,12 @@ export interface AutoScalingGroupProviderUpdate {
    *             <p>When using managed termination protection, managed scaling must also be used
    * 				otherwise managed termination protection doesn't work.</p>
    *          </important>
-   *          <p>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in
-   * 			an Auto Scaling group that contain tasks from being terminated during a scale-in action.
-   * 			The Auto Scaling group and each instance in the Auto Scaling group must have instance
-   * 			protection from scale-in actions enabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
-   *          <p>When managed termination protection is disabled, your Amazon EC2 instances aren't protected
-   * 			from termination when the Auto Scaling group scales in.</p>
+   *          <p>When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto
+   * 			Scaling group that contain tasks from being terminated during a scale-in action. The
+   * 			Auto Scaling group and each instance in the Auto Scaling group must have instance
+   * 			protection from scale-in actions on. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
+   *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from
+   * 			termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection | string;
 }
@@ -10232,72 +10259,14 @@ export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceRespon
 /**
  * @internal
  */
-export const DeleteTaskSetRequestFilterSensitiveLog = (obj: DeleteTaskSetRequest): any => ({
+export const DeleteTaskDefinitionsRequestFilterSensitiveLog = (obj: DeleteTaskDefinitionsRequest): any => ({
   ...obj,
 });
 
 /**
  * @internal
  */
-export const DeleteTaskSetResponseFilterSensitiveLog = (obj: DeleteTaskSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterContainerInstanceRequestFilterSensitiveLog = (obj: DeregisterContainerInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceHealthCheckResultFilterSensitiveLog = (obj: InstanceHealthCheckResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerInstanceHealthStatusFilterSensitiveLog = (obj: ContainerInstanceHealthStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VersionInfoFilterSensitiveLog = (obj: VersionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerInstanceFilterSensitiveLog = (obj: ContainerInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterContainerInstanceResponseFilterSensitiveLog = (
-  obj: DeregisterContainerInstanceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTaskDefinitionRequestFilterSensitiveLog = (obj: DeregisterTaskDefinitionRequest): any => ({
+export const FailureFilterSensitiveLog = (obj: Failure): any => ({
   ...obj,
 });
 
@@ -10518,6 +10487,85 @@ export const TaskDefinitionFilterSensitiveLog = (obj: TaskDefinition): any => ({
 /**
  * @internal
  */
+export const DeleteTaskDefinitionsResponseFilterSensitiveLog = (obj: DeleteTaskDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTaskSetRequestFilterSensitiveLog = (obj: DeleteTaskSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTaskSetResponseFilterSensitiveLog = (obj: DeleteTaskSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterContainerInstanceRequestFilterSensitiveLog = (obj: DeregisterContainerInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceHealthCheckResultFilterSensitiveLog = (obj: InstanceHealthCheckResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerInstanceHealthStatusFilterSensitiveLog = (obj: ContainerInstanceHealthStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionInfoFilterSensitiveLog = (obj: VersionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerInstanceFilterSensitiveLog = (obj: ContainerInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterContainerInstanceResponseFilterSensitiveLog = (
+  obj: DeregisterContainerInstanceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTaskDefinitionRequestFilterSensitiveLog = (obj: DeregisterTaskDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeregisterTaskDefinitionResponseFilterSensitiveLog = (obj: DeregisterTaskDefinitionResponse): any => ({
   ...obj,
 });
@@ -10526,13 +10574,6 @@ export const DeregisterTaskDefinitionResponseFilterSensitiveLog = (obj: Deregist
  * @internal
  */
 export const DescribeCapacityProvidersRequestFilterSensitiveLog = (obj: DescribeCapacityProvidersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureFilterSensitiveLog = (obj: Failure): any => ({
   ...obj,
 });
 

@@ -29,7 +29,7 @@ export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRe
 export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Disables an account setting for a specified IAM user, IAM role, or the root user for
+ * <p>Disables an account setting for a specified  user, role, or the root user for
  * 			an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
