@@ -136,7 +136,7 @@ export interface ListResourceProfileArtifactsRequest {
 
 export interface ListResourceProfileArtifactsResponse {
   /**
-   * <p>An array of objects, one for each S3 object that Amazon Macie selected for analysis.</p>
+   * <p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>
    */
   artifacts?: ResourceProfileArtifact[];
 
@@ -492,7 +492,7 @@ export interface UpdateFindingsFilterRequest {
   clientToken?: string;
 
   /**
-   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   description?: string;
 
@@ -507,7 +507,7 @@ export interface UpdateFindingsFilterRequest {
   id: string | undefined;
 
   /**
-   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   name?: string;
 
@@ -610,7 +610,7 @@ export interface UpdateRevealConfigurationResponse {
 
 export interface UpdateSensitivityInspectionTemplateRequest {
   /**
-   * <p>A custom description of the template.</p>
+   * <p>A custom description of the template. The description can contain as many as 200 characters.</p>
    */
   description?: string;
 
