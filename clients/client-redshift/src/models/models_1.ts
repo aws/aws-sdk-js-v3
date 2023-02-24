@@ -2084,7 +2084,7 @@ export interface ModifyClusterMessage {
    *                 <code>PendingModifiedValues</code> element of the operation response. </p>
    *          <note>
    *             <p>Operations never return the password, so this operation provides a way to
-   *                 regain access to the admin user account for a cluster if the password is
+   *                 regain access to the admin user for a cluster if the password is
    *                 lost.</p>
    *          </note>
    *          <p>Default: Uses existing setting.</p>
@@ -2932,7 +2932,7 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The name of the cluster the source snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
@@ -3324,7 +3324,7 @@ export interface RevokeSnapshotAccessMessage {
 
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
