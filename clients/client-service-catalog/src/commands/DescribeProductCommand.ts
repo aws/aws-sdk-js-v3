@@ -30,6 +30,15 @@ export interface DescribeProductCommandOutput extends DescribeProductOutput, __M
 
 /**
  * <p>Gets information about the specified product.</p>
+ *          <note>
+ *             <p>
+ *             Running this operation
+ *             with administrator access
+ *             results
+ *             in a failure.
+ *             <a>DescribeProductAsAdmin</a> should be used instead.
+ *          </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
