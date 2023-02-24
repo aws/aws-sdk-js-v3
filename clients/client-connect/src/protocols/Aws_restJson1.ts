@@ -4358,6 +4358,7 @@ export const serializeAws_restJson1StartTaskContactCommand = async (
     ...(input.PreviousContactId != null && { PreviousContactId: input.PreviousContactId }),
     ...(input.QuickConnectId != null && { QuickConnectId: input.QuickConnectId }),
     ...(input.References != null && { References: serializeAws_restJson1ContactReferences(input.References, context) }),
+    ...(input.RelatedContactId != null && { RelatedContactId: input.RelatedContactId }),
     ...(input.ScheduledTime != null && { ScheduledTime: Math.round(input.ScheduledTime.getTime() / 1000) }),
     ...(input.TaskTemplateId != null && { TaskTemplateId: input.TaskTemplateId }),
   });

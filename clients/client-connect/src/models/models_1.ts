@@ -2858,6 +2858,12 @@ export interface StartTaskContactRequest {
    * <p>The identifier for the quick connect.</p>
    */
   QuickConnectId?: string;
+
+  /**
+   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this
+   *    contact.</p>
+   */
+  RelatedContactId?: string;
 }
 
 export interface StartTaskContactResponse {
